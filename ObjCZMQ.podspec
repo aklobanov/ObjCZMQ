@@ -18,6 +18,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0', :osx, '10.8'
   s.osx.deployment_target = '10.8'
   s.ios.deployment_target = '8.0'
-  s.frameworks = 'Foundation'
+  s.frameworks = 'Foundation', :ios, 'libzmq-ios.lib', :osx, 'libzmq-osx'
   s.requires_arc = true
 end
