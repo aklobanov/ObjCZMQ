@@ -29,13 +29,13 @@
 		5C1D06881C6235440002F93E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1D066E1C61C80F0002F93E /* libc++.tbd */; };
 		5C1D068C1C6235660002F93E /* ObjCZMQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06261C61C47E0002F93E /* ObjCZMQ.h */; };
 		5C1D06B41C63F5F90002F93E /* libzmq-osx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1D06B11C63F5F90002F93E /* libzmq-osx.a */; };
-		5C1D06B51C63F5F90002F93E /* libzmq-osx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1D06B11C63F5F90002F93E /* libzmq-osx.a */; };
 		5C1D06B61C63F5F90002F93E /* zmq_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06B21C63F5F90002F93E /* zmq_utils.h */; };
 		5C1D06B71C63F5F90002F93E /* zmq_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06B21C63F5F90002F93E /* zmq_utils.h */; };
 		5C1D06B81C63F5F90002F93E /* zmq.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06B31C63F5F90002F93E /* zmq.h */; };
 		5C1D06B91C63F5F90002F93E /* zmq.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06B31C63F5F90002F93E /* zmq.h */; };
-		5C1D06BB1C63F8CE0002F93E /* libzmq-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1D06BA1C63F8CE0002F93E /* libzmq-ios.a */; };
 		5C1D06BC1C63F8CE0002F93E /* libzmq-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1D06BA1C63F8CE0002F93E /* libzmq-ios.a */; };
+		5C1D06BE1C63F9AD0002F93E /* ObjCZMQ.pch in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06BD1C63F9AD0002F93E /* ObjCZMQ.pch */; };
+		5C1D06BF1C63F9AD0002F93E /* ObjCZMQ.pch in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06BD1C63F9AD0002F93E /* ObjCZMQ.pch */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,11 +65,13 @@
 		5C1D067C1C6234460002F93E /* ZMQError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMQError.m; sourceTree = "<group>"; };
 		5C1D06811C62346A0002F93E /* ZMQException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMQException.h; sourceTree = "<group>"; };
 		5C1D06821C62346A0002F93E /* ZMQException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMQException.m; sourceTree = "<group>"; };
-		5C1D06B01C63F1DC0002F93E /* module.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.map; sourceTree = "<group>"; };
+		5C1D06B01C63F1DC0002F93E /* module-osx.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = "module-osx.map"; sourceTree = "<group>"; };
 		5C1D06B11C63F5F90002F93E /* libzmq-osx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libzmq-osx.a"; sourceTree = "<group>"; };
 		5C1D06B21C63F5F90002F93E /* zmq_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zmq_utils.h; sourceTree = "<group>"; };
 		5C1D06B31C63F5F90002F93E /* zmq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zmq.h; sourceTree = "<group>"; };
 		5C1D06BA1C63F8CE0002F93E /* libzmq-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libzmq-ios.a"; sourceTree = "<group>"; };
+		5C1D06BD1C63F9AD0002F93E /* ObjCZMQ.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCZMQ.pch; sourceTree = "<group>"; };
+		5C1D06C01C63FEF80002F93E /* module-ios.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = "module-ios.map"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +81,6 @@
 			files = (
 				5C1D06871C6235380002F93E /* Foundation.framework in Frameworks */,
 				5C1D06881C6235440002F93E /* libc++.tbd in Frameworks */,
-				5C1D06BB1C63F8CE0002F93E /* libzmq-ios.a in Frameworks */,
 				5C1D06B41C63F5F90002F93E /* libzmq-osx.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,7 +100,6 @@
 				5C1D06741C61C8620002F93E /* Foundation.framework in Frameworks */,
 				5C1D066F1C61C80F0002F93E /* libc++.tbd in Frameworks */,
 				5C1D06BC1C63F8CE0002F93E /* libzmq-ios.a in Frameworks */,
-				5C1D06B51C63F5F90002F93E /* libzmq-osx.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,7 +129,8 @@
 		5C1D06251C61C47E0002F93E /* ObjCZMQ */ = {
 			isa = PBXGroup;
 			children = (
-				5C1D06B01C63F1DC0002F93E /* module.map */,
+				5C1D06B01C63F1DC0002F93E /* module-osx.map */,
+				5C1D06C01C63FEF80002F93E /* module-ios.map */,
 				5C1D06261C61C47E0002F93E /* ObjCZMQ.h */,
 				5C1D06281C61C47E0002F93E /* Info.plist */,
 				5C1D06751C61C8B60002F93E /* ZMQContext.h */,
@@ -138,6 +139,7 @@
 				5C1D067C1C6234460002F93E /* ZMQError.m */,
 				5C1D06811C62346A0002F93E /* ZMQException.h */,
 				5C1D06821C62346A0002F93E /* ZMQException.m */,
+				5C1D06BD1C63F9AD0002F93E /* ObjCZMQ.pch */,
 			);
 			path = ObjCZMQ;
 			sourceTree = "<group>";
@@ -190,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C1D067D1C6234460002F93E /* ZMQError.h in Headers */,
+				5C1D06BE1C63F9AD0002F93E /* ObjCZMQ.pch in Headers */,
 				5C1D06B61C63F5F90002F93E /* zmq_utils.h in Headers */,
 				5C1D06831C62346A0002F93E /* ZMQException.h in Headers */,
 				5C1D06B81C63F5F90002F93E /* zmq.h in Headers */,
@@ -203,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C1D067E1C6234460002F93E /* ZMQError.h in Headers */,
+				5C1D06BF1C63F9AD0002F93E /* ObjCZMQ.pch in Headers */,
 				5C1D06B71C63F5F90002F93E /* zmq_utils.h in Headers */,
 				5C1D06841C62346A0002F93E /* ZMQException.h in Headers */,
 				5C1D06B91C63F5F90002F93E /* zmq.h in Headers */,
@@ -500,6 +504,8 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ObjCZMQ/ObjCZMQ.pch;
 				INFOPLIST_FILE = ObjCZMQ/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
@@ -507,7 +513,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dependencies/libzmq",
 				);
+				MODULEMAP_FILE = "ObjCZMQ/module-osx.map";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blueskies-software.ObjCZMQ";
+				PRODUCT_MODULE_NAME = ObjCZMQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -522,6 +530,8 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ObjCZMQ/ObjCZMQ.pch;
 				INFOPLIST_FILE = ObjCZMQ/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
@@ -529,7 +539,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dependencies/libzmq",
 				);
+				MODULEMAP_FILE = "ObjCZMQ/module-osx.map";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blueskies-software.ObjCZMQ";
+				PRODUCT_MODULE_NAME = ObjCZMQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -565,6 +577,9 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ObjCZMQ/ObjCZMQ.pch;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/ObjCZMQ/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -573,8 +588,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dependencies/libzmq",
 				);
-				MODULEMAP_FILE = ObjCZMQ/module.map;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blueskies-software.ObjCZMQiOS";
+				MODULEMAP_FILE = "ObjCZMQ/module-ios.map";
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blueskies-software.ObjCZMQ";
+				PRODUCT_MODULE_NAME = ObjCZMQiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -590,6 +607,9 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ObjCZMQ/ObjCZMQ.pch;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/ObjCZMQ/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -598,8 +618,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Dependencies/libzmq",
 				);
-				MODULEMAP_FILE = ObjCZMQ/module.map;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.blueskies-software.ObjCZMQiOS";
+				MODULEMAP_FILE = "ObjCZMQ/module-ios.map";
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.blueskies-software.ObjCZMQ";
+				PRODUCT_MODULE_NAME = ObjCZMQiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

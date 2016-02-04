@@ -1,0 +1,15 @@
+//
+//  ObjCZMQ.pch
+//  ObjCZMQ
+//
+//  Created by ALEXEY LOBANOV on 05.02.16.
+//  Copyright © 2016 Blue Skies Software. All rights reserved.
+//
+
+#ifndef ObjCZMQ_pch
+#define ObjCZMQ_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "ObjCZMQ.h" 
+#endif /* ObjCZMQ_pch */

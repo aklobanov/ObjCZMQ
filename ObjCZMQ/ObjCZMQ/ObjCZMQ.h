@@ -9,10 +9,10 @@
 #define ObjCZMQ_h
 
 //! Project version number for ObjCZMQ.
-FOUNDATION_EXPORT double ObjCZMQVersionNumber;
+//FOUNDATION_EXPORT double ObjCZMQVersionNumber;
 
 //! Project version string for ObjCZMQ.
-FOUNDATION_EXPORT const unsigned char ObjCZMQVersionString[];
+//FOUNDATION_EXPORT const unsigned char ObjCZMQVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <ObjCZMQ/PublicHeader.h>
 #import <zmq.h>
