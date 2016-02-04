@@ -18,7 +18,8 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.8'
   s.ios.deployment_target = '8.0'
   s.frameworks = 'Foundation'
-  s.ios.libraries = 'libc++','libzmq-ios.a'
-  s.osx.libraries = 'libc++','libzmq-osx.a'
-  s.xcconfig  =  { 'Run Script' => '"$(PODS_ROOT)/ObjCZMQ/Dependencies/libzmq/pull_compile_libzmq_git.sh"' }
+  s.libraries = 'c++'
+  s.vendored_library = 'ObjCZMQ/Dependencies/libzmq/pull_compile_libzmq_git.sh'
+  s.ios.vendored_library = 'ObjCZMQ/Dependencies/libzmq/libzmq-ios.a'
+  s.osx.vendored_library = 'ObjCZMQ/Dependencies/libzmq/libzmq-osx.a'
 end
