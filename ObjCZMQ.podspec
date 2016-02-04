@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.author = { 'Alexey Lobanov' => 'aklobanov@gmail.com' }
   s.social_media_url = 'https://www.facebook.com/aklobanov'
   s.source = { :git => 'https://github.com/aklobanov/ObjCZMQ.git', :tag => s.version }
-  s.source_files = 'ObjCZMQ/ObjCZMQ/*.{h,m,pch,map}', 'ObjCZMQ/Dependencies/libzmq/*.h'
+  s.source_files = 'ObjCZMQ/ObjCZMQ/*.{h,m,pch}', 'ObjCZMQ/Dependencies/libzmq/*.h'
   s.public_header_files = 'ObjCZMQ/ObjCZMQ/*.{h,hpp}'
   s.platform     = :ios, '8.0', :osx, '10.9'
   s.requires_arc = true
