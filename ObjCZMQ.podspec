@@ -13,12 +13,12 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/aklobanov/ObjCZMQ.git', :tag => s.version }
   s.source_files = 'ObjCZMQ/ObjCZMQ/*.{h,m}', 'ObjCZMQ/Dependency/*.{h,sh}'
   s.public_header_files = 'ObjCZMQ/ObjCZMQ/*.{h,hpp}'
-  s.libraries = 'c++'
   s.platform     = :ios, '8.0', :osx, '10.8'
+  s.requires_arc = true
   s.osx.deployment_target = '10.8'
   s.ios.deployment_target = '8.0'
   s.frameworks = 'Foundation'
-  s.ios.frameworks = 'libzmq-ios.a'
-  s.osx.frameworks = 'libzmq-osx.a'
-  s.requires_arc = true
+  s.libraries = 'c++'
+  s.ios.library = 'libzmq-ios'
+  s.osx.library = 'libzmq-osx'
 end
