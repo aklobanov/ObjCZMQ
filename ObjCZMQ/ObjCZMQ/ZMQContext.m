@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "ZMQContext.h"
 #import "ZMQException.h"
-#import <zmq.h>
 
 #define LOCAL_LEVEL_0 0
 #define LOCAL_LEVEL_1 1
@@ -122,7 +121,7 @@
 {
     return ([self getOption:ZMQ_BLOCKY] != 0);
 }
-
+/*
 - (NSInteger)ioThreads
 {
     set {
@@ -164,5 +163,5 @@ public func setThreadSchedulingPolicy(value: Int32) {
 public func setThreadPriority(value: Int32) {
     setOption(ZMQ_THREAD_PRIORITY, value: value)
 }
-
+*/
 @end
