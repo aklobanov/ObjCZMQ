@@ -7,7 +7,7 @@
 //
 
 #import "ZMQException.h"
-#import "zmq.h"
+#import <zmq.h>
 
 #define LOCAL_LEVEL_0 0
 #define LOCAL_LEVEL_1 1

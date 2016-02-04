@@ -32,7 +32,6 @@
 		5C1D06871C6235380002F93E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1D06731C61C8620002F93E /* Foundation.framework */; };
 		5C1D06881C6235440002F93E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1D066E1C61C80F0002F93E /* libc++.tbd */; };
 		5C1D06891C6235570002F93E /* zmq.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D065E1C61C5C20002F93E /* zmq.h */; };
-		5C1D068A1C62355C0002F93E /* pull_compile_libzmq_git.sh in Resources */ = {isa = PBXBuildFile; fileRef = 5C1D065D1C61C5C20002F93E /* pull_compile_libzmq_git.sh */; };
 		5C1D068B1C62355F0002F93E /* zmq_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D065F1C61C5C20002F93E /* zmq_utils.h */; };
 		5C1D068C1C6235660002F93E /* ObjCZMQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06261C61C47E0002F93E /* ObjCZMQ.h */; };
 /* End PBXBuildFile section */
@@ -324,7 +323,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C1D068A1C62355C0002F93E /* pull_compile_libzmq_git.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +354,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/dependencies/libzmq/pull_compile_libzmq_git.sh";
+			shellScript = "${PROJECT_DIR}/Dependencies/libzmq/pull_compile_libzmq_git.sh";
 		};
 /* End PBXShellScriptBuildPhase section */
 
