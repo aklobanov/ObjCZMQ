@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
   s.source_files = 'ObjCZMQ/ObjCZMQ/*.{h,m}', 'ObjCZMQ/Dependencies/libzmq/*.{h,sh}'
   s.public_header_files = 'ObjCZMQ/ObjCZMQ/*.{h,hpp}'
   s.vendored_libraries = 'ObjCZMQ/Dependencies/libzmq/libzmq-osx.a','ObjCZMQ/Dependencies/libzmq/libzmq-ios.a'
+  s.vendored_frameworks = 'ObjCZMQ/ObjCZMQ/ObjCZMQ.framework'
   s.libraries = 'c++'
 # s.resources = ['JSQMessagesViewController/Assets/JSQMessagesAssets.bundle', 'JSQMessagesViewController/**/*.{xib}']
   s.platform     = :ios, '8.0', :osx, '10.8'
