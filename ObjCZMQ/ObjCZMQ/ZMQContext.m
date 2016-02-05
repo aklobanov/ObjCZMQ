@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ZMQContext.h"
 #import "ZMQException.h"
+#include "zmq.h"
 
 #define LOCAL_LEVEL_0 0
 #define LOCAL_LEVEL_1 1
@@ -114,12 +115,12 @@
 }
 - (void)setBlocky:(BOOL)blocky
 {
-    [self setOption:ZMQ_BLOCKY value:blocky ? 1 : 0];
+//    [self setOption:ZMQ_BLOCKY value:blocky ? 1 : 0];
     
 }
 - (BOOL)blocky
 {
-    return ([self getOption:ZMQ_BLOCKY] != 0);
+//    return ([self getOption:ZMQ_BLOCKY] != 0);
 }
 /*
 - (NSInteger)ioThreads
