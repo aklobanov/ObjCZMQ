@@ -17,8 +17,9 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.libraries = 'c++'
   s.prepare_command = <<-CMD
-      Submodules/libzmq/autogen.sh
-      Submodules/libzmq/configure --disable-dependency-tracking \
+      cd Submodules/libzmq
+      ./autogen.sh
+      ./configure --disable-dependency-tracking \
                 --enable-static \
                 --disable-shared \
                 --host=arm-apple-darwin \
@@ -26,5 +27,6 @@ Pod::Spec.new do |s|
                 --without-libsodium \
                 --disable-perf \
                 --disable-curve-keygen
+      cd ../..
   CMD
 end
