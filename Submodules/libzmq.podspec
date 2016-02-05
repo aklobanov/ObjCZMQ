@@ -18,12 +18,12 @@ Pod::Spec.new do |s|
   s.libraries = 'c++'
   s.prepare_command = <<-CMD
         CURRENT_DIR="${PWD}"
-        echo "Save current dir=${CURRENT_DIR}" > 2
+        echo "Save current dir=${CURRENT_DIR}" > INSTALL_LOG.TXT
         cd Submodules/libzmq
-        echo "Change dir to=${PWD}" > 2
-        echo "Running autogen.sh" > 2
+        echo "Change dir to=${PWD}" > INSTALL_LOG.TXT
+        echo "Running autogen.sh" > INSTALL_LOG.TXT
         ./autogen.sh
         cd "${CURRENT_DIR}"
-        echo "Change dir to=${PWD}" > 2
+        echo "Change dir to=${PWD}" > INSTALL_LOG.TXT
   CMD
 end
