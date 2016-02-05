@@ -3,7 +3,7 @@
 # Script adapted from https://github.com/samsoir/libzmq-ios-universal
 # tried to keep things to a minimum
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR="${PROJECT_DIR}/ObjCZMQ"
 GLOBAL_OUTDIR=${DIR}/Dependencies
 BUILD_DIR=${DIR}/build
 LIBZMQ_DIR="${DIR}/libzmq-git"

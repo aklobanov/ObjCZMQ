@@ -66,10 +66,10 @@
 		5C1D06811C62346A0002F93E /* ZMQException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMQException.h; sourceTree = "<group>"; };
 		5C1D06821C62346A0002F93E /* ZMQException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMQException.m; sourceTree = "<group>"; };
 		5C1D06B01C63F1DC0002F93E /* module-osx.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = "module-osx.map"; sourceTree = "<group>"; };
-		5C1D06B11C63F5F90002F93E /* libzmq-osx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libzmq-osx.a"; sourceTree = "<group>"; };
-		5C1D06B21C63F5F90002F93E /* zmq_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zmq_utils.h; sourceTree = "<group>"; };
-		5C1D06B31C63F5F90002F93E /* zmq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zmq.h; sourceTree = "<group>"; };
-		5C1D06BA1C63F8CE0002F93E /* libzmq-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libzmq-ios.a"; sourceTree = "<group>"; };
+		5C1D06B11C63F5F90002F93E /* libzmq-osx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libzmq-osx.a"; path = "../Dependencies/libzmq/libzmq-osx.a"; sourceTree = "<group>"; };
+		5C1D06B21C63F5F90002F93E /* zmq_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zmq_utils.h; path = ../Dependencies/libzmq/zmq_utils.h; sourceTree = "<group>"; };
+		5C1D06B31C63F5F90002F93E /* zmq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zmq.h; path = ../Dependencies/libzmq/zmq.h; sourceTree = "<group>"; };
+		5C1D06BA1C63F8CE0002F93E /* libzmq-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libzmq-ios.a"; path = "../Dependencies/libzmq/libzmq-ios.a"; sourceTree = "<group>"; };
 		5C1D06BD1C63F9AD0002F93E /* ObjCZMQ.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCZMQ.pch; sourceTree = "<group>"; };
 		5C1D06C01C63FEF80002F93E /* module-ios.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = "module-ios.map"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +129,10 @@
 		5C1D06251C61C47E0002F93E /* ObjCZMQ */ = {
 			isa = PBXGroup;
 			children = (
+				5C1D06BA1C63F8CE0002F93E /* libzmq-ios.a */,
+				5C1D06B11C63F5F90002F93E /* libzmq-osx.a */,
+				5C1D06B21C63F5F90002F93E /* zmq_utils.h */,
+				5C1D06B31C63F5F90002F93E /* zmq.h */,
 				5C1D06B01C63F1DC0002F93E /* module-osx.map */,
 				5C1D06C01C63FEF80002F93E /* module-ios.map */,
 				5C1D06261C61C47E0002F93E /* ObjCZMQ.h */,
@@ -165,10 +169,6 @@
 		5C1D065A1C61C5C20002F93E /* libzmq */ = {
 			isa = PBXGroup;
 			children = (
-				5C1D06BA1C63F8CE0002F93E /* libzmq-ios.a */,
-				5C1D06B11C63F5F90002F93E /* libzmq-osx.a */,
-				5C1D06B21C63F5F90002F93E /* zmq_utils.h */,
-				5C1D06B31C63F5F90002F93E /* zmq.h */,
 				5C1D065D1C61C5C20002F93E /* pull_compile_libzmq_git.sh */,
 			);
 			path = libzmq;
