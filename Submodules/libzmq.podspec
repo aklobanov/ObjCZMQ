@@ -17,8 +17,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.libraries = 'libc++'
   s.prepare_command = <<-CMD
-    libzmq/autogen.sh
-    libzmq/configure --disable-dependency-tracking \
+    ObjCZMQ/libzmq/autogen.sh
+    ObjCZMQ/libzmq/configure --disable-dependency-tracking \
                 --enable-static \
                 --disable-shared \
                 --host=arm-apple-darwin \
