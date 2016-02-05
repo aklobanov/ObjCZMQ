@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name = 'libzmq'
+  s.name = 'libzmq_master'
   s.version = '4.1.4'
   s.summary = 'ZeroMQ'
   s.description  = <<-DESC
