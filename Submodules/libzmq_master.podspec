@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'libzmq_master'
-  s.version = '4.1.4'
+  s.version = '1.0'
   s.summary = 'ZeroMQ'
   s.description  = <<-DESC
     ZeroMQ Core library.
