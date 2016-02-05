@@ -9,8 +9,8 @@ Pod::Spec.new do |s|
   s.license = 'LGPLv3'
   s.author = { '0MQ Developers' => 'zeromq-dev@lists.zeromq.org' }
   s.source = { :git => 'https://github.com/zeromq/libzmq.git', :tag => s.version }
-  s.source_files = 'libzmq/src/*.{h,hpp,c,cc,cpp}', 'libzmq/include/*.h'
-  s.public_header_files = 'libzmq/include/*.h'
+  s.source_files = 'src/*.{h,hpp,c,cc,cpp}', 'include/*.h'
+  s.public_header_files = 'include/*.h'
   s.platform     = :ios, '8.0', :osx, '10.9'
   s.requires_arc = false
   s.osx.deployment_target = '10.9'
