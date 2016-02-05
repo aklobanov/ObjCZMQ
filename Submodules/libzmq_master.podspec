@@ -17,14 +17,14 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.libraries = 'libc++'
   s.prepare_command = <<-CMD
-    ./autogen.sh
-    ./configure --disable-dependency-tracking \
-                --enable-static \
-                --disable-shared \
-                --host=arm-apple-darwin \
-                --prefix="build" \
-                --without-libsodium \
-                --disable-perf \
-                --disable-curve-keygen
+#    ./autogen.sh
+#    ./configure --disable-dependency-tracking \
+#                --enable-static \
+#                --disable-shared \
+#                --host=arm-apple-darwin \
+#                --prefix="build" \
+#                --without-libsodium \
+#                --disable-perf \
+#                --disable-curve-keygen
   CMD
 end
