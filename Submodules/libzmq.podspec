@@ -19,14 +19,25 @@ Pod::Spec.new do |s|
   s.prepare_command = <<-CMD
       cd Submodules/libzmq
       ./autogen.sh
+      export CFLAGS="-mios-version-min=8.0"
+      export SDK="iphoneos"
+#      export SDKROOT=$(xcrun -sdk "${SDK}" --show-sdk-path)
+      export CFLAGS="${CFLAGS} -arch ${ARCHS} -fembed-bitcode"
+      export CXXFLAGS="${CFLAGS}"
+      export CPPFLAGS="${CFLAGS}"
+      export LDFLAGS="${CFLAGS}"
+      mkdir -p "Submodules/libzmq/lib"
       ./configure --disable-dependency-tracking \
                 --enable-static \
                 --disable-shared \
                 --host=arm-apple-darwin \
-                --prefix="build" \
+                --prefix="Submodules/libzmq/lib" \
                 --without-libsodium \
                 --disable-perf \
                 --disable-curve-keygen
+      make
+      make install
+      make clean      
       cd ../..
   CMD
 end
