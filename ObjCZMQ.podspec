@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.author = { 'Alexey Lobanov' => 'aklobanov@gmail.com' }
   s.social_media_url = 'https://www.facebook.com/aklobanov'
   s.source = { :git => 'https://github.com/aklobanov/ObjCZMQ.git', :tag => s.version, :submodules => true }
-  s.source_files = 'ObjCZMQ/ObjCZMQ/*.{h,m,pch}', 'ObjCZMQ/Dependencies/libzmq/*.h'
+  s.source_files = 'ObjCZMQ/ObjCZMQ/*.{h,m,pch}'
   s.public_header_files = 'ObjCZMQ/ObjCZMQ/*.{h,hpp}'
   s.platform     = :ios, '8.0', :osx, '10.9'
   s.requires_arc = true
@@ -20,8 +20,8 @@ Pod::Spec.new do |s|
   s.frameworks = 'Foundation'
   s.libraries = 'libc++'
   s.prepare_command = <<-CMD
-    ObjCZMQ/Dependencies/libzmq/pull_compile_libzmq_git.sh
+    ObjCZMQ/build_ios.sh
   CMD
-  s.ios.vendored_library = 'ObjCZMQ/Dependencies/libzmq/libzmq-ios.a'
-  s.osx.vendored_library = 'ObjCZMQ/Dependencies/libzmq/libzmq-osx.a'
+  s.ios.vendored_library = 'ObjCZMQ/ObjCZMQ/libzmq-ios.a'
+  s.osx.vendored_library = 'ObjCZMQ/ObjCZMQ/libzmq-osx.a'
 end

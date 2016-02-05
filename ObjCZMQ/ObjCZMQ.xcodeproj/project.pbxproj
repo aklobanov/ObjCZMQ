@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C1D06271C61C47E0002F93E /* ObjCZMQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06261C61C47E0002F93E /* ObjCZMQ.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5C1D062E1C61C47E0002F93E /* ObjCZMQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1D06231C61C47E0002F93E /* ObjCZMQ.framework */; };
 		5C1D06331C61C47E0002F93E /* ObjCZMQTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D06321C61C47E0002F93E /* ObjCZMQTests.m */; };
-		5C1D06621C61C5C20002F93E /* pull_compile_libzmq_git.sh in Resources */ = {isa = PBXBuildFile; fileRef = 5C1D065D1C61C5C20002F93E /* pull_compile_libzmq_git.sh */; };
 		5C1D066F1C61C80F0002F93E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1D066E1C61C80F0002F93E /* libc++.tbd */; };
 		5C1D06741C61C8620002F93E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1D06731C61C8620002F93E /* Foundation.framework */; };
 		5C1D06771C61C8B60002F93E /* ZMQContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06751C61C8B60002F93E /* ZMQContext.h */; };
@@ -27,15 +25,14 @@
 		5C1D06861C62346A0002F93E /* ZMQException.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D06821C62346A0002F93E /* ZMQException.m */; };
 		5C1D06871C6235380002F93E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1D06731C61C8620002F93E /* Foundation.framework */; };
 		5C1D06881C6235440002F93E /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1D066E1C61C80F0002F93E /* libc++.tbd */; };
-		5C1D068C1C6235660002F93E /* ObjCZMQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06261C61C47E0002F93E /* ObjCZMQ.h */; };
-		5C1D06B41C63F5F90002F93E /* libzmq-osx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1D06B11C63F5F90002F93E /* libzmq-osx.a */; };
-		5C1D06B61C63F5F90002F93E /* zmq_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06B21C63F5F90002F93E /* zmq_utils.h */; };
-		5C1D06B71C63F5F90002F93E /* zmq_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06B21C63F5F90002F93E /* zmq_utils.h */; };
-		5C1D06B81C63F5F90002F93E /* zmq.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06B31C63F5F90002F93E /* zmq.h */; };
-		5C1D06B91C63F5F90002F93E /* zmq.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06B31C63F5F90002F93E /* zmq.h */; };
-		5C1D06BC1C63F8CE0002F93E /* libzmq-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1D06BA1C63F8CE0002F93E /* libzmq-ios.a */; };
 		5C1D06BE1C63F9AD0002F93E /* ObjCZMQ.pch in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06BD1C63F9AD0002F93E /* ObjCZMQ.pch */; };
 		5C1D06BF1C63F9AD0002F93E /* ObjCZMQ.pch in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06BD1C63F9AD0002F93E /* ObjCZMQ.pch */; };
+		5C1D06C51C6449AF0002F93E /* libzmq-osx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1D06C41C6449AF0002F93E /* libzmq-osx.a */; };
+		5C1D06C71C6449E40002F93E /* libzmq-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1D06C61C6449E40002F93E /* libzmq-ios.a */; };
+		5C1D06CA1C644AA70002F93E /* zmq_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06C81C644AA70002F93E /* zmq_utils.h */; };
+		5C1D06CB1C644AA70002F93E /* zmq.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06C91C644AA70002F93E /* zmq.h */; };
+		5C1D06CD1C6451610002F93E /* build_osx.sh in Resources */ = {isa = PBXBuildFile; fileRef = 5C1D06CC1C6451610002F93E /* build_osx.sh */; };
+		5C1D06CF1C645C410002F93E /* build_ios.sh in Resources */ = {isa = PBXBuildFile; fileRef = 5C1D06CE1C645C410002F93E /* build_ios.sh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,13 +47,11 @@
 
 /* Begin PBXFileReference section */
 		5C1D06231C61C47E0002F93E /* ObjCZMQ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjCZMQ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C1D06261C61C47E0002F93E /* ObjCZMQ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCZMQ.h; sourceTree = "<group>"; };
 		5C1D06281C61C47E0002F93E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C1D062D1C61C47E0002F93E /* ObjCZMQTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjCZMQTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C1D06321C61C47E0002F93E /* ObjCZMQTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCZMQTests.m; sourceTree = "<group>"; };
 		5C1D06341C61C47E0002F93E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C1D06421C61C5430002F93E /* ObjCZMQiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjCZMQiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C1D065D1C61C5C20002F93E /* pull_compile_libzmq_git.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = pull_compile_libzmq_git.sh; sourceTree = "<group>"; };
 		5C1D066E1C61C80F0002F93E /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/usr/lib/libc++.tbd"; sourceTree = DEVELOPER_DIR; };
 		5C1D06731C61C8620002F93E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		5C1D06751C61C8B60002F93E /* ZMQContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMQContext.h; sourceTree = "<group>"; };
@@ -65,13 +60,13 @@
 		5C1D067C1C6234460002F93E /* ZMQError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMQError.m; sourceTree = "<group>"; };
 		5C1D06811C62346A0002F93E /* ZMQException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMQException.h; sourceTree = "<group>"; };
 		5C1D06821C62346A0002F93E /* ZMQException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMQException.m; sourceTree = "<group>"; };
-		5C1D06B01C63F1DC0002F93E /* module-osx.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = "module-osx.map"; sourceTree = "<group>"; };
-		5C1D06B11C63F5F90002F93E /* libzmq-osx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libzmq-osx.a"; path = "../Dependencies/libzmq/libzmq-osx.a"; sourceTree = "<group>"; };
-		5C1D06B21C63F5F90002F93E /* zmq_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zmq_utils.h; path = ../Dependencies/libzmq/zmq_utils.h; sourceTree = "<group>"; };
-		5C1D06B31C63F5F90002F93E /* zmq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zmq.h; path = ../Dependencies/libzmq/zmq.h; sourceTree = "<group>"; };
-		5C1D06BA1C63F8CE0002F93E /* libzmq-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libzmq-ios.a"; path = "../Dependencies/libzmq/libzmq-ios.a"; sourceTree = "<group>"; };
 		5C1D06BD1C63F9AD0002F93E /* ObjCZMQ.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCZMQ.pch; sourceTree = "<group>"; };
-		5C1D06C01C63FEF80002F93E /* module-ios.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = "module-ios.map"; sourceTree = "<group>"; };
+		5C1D06C41C6449AF0002F93E /* libzmq-osx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libzmq-osx.a"; sourceTree = "<group>"; };
+		5C1D06C61C6449E40002F93E /* libzmq-ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libzmq-ios.a"; sourceTree = "<group>"; };
+		5C1D06C81C644AA70002F93E /* zmq_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zmq_utils.h; sourceTree = "<group>"; };
+		5C1D06C91C644AA70002F93E /* zmq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zmq.h; sourceTree = "<group>"; };
+		5C1D06CC1C6451610002F93E /* build_osx.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build_osx.sh; sourceTree = "<group>"; };
+		5C1D06CE1C645C410002F93E /* build_ios.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build_ios.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +74,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C1D06C51C6449AF0002F93E /* libzmq-osx.a in Frameworks */,
 				5C1D06871C6235380002F93E /* Foundation.framework in Frameworks */,
 				5C1D06881C6235440002F93E /* libc++.tbd in Frameworks */,
-				5C1D06B41C63F5F90002F93E /* libzmq-osx.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +94,7 @@
 			files = (
 				5C1D06741C61C8620002F93E /* Foundation.framework in Frameworks */,
 				5C1D066F1C61C80F0002F93E /* libc++.tbd in Frameworks */,
-				5C1D06BC1C63F8CE0002F93E /* libzmq-ios.a in Frameworks */,
+				5C1D06C71C6449E40002F93E /* libzmq-ios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +104,8 @@
 		5C1D06191C61C47E0002F93E = {
 			isa = PBXGroup;
 			children = (
+				5C1D06CC1C6451610002F93E /* build_osx.sh */,
+				5C1D06CE1C645C410002F93E /* build_ios.sh */,
 				5C1D06591C61C5C20002F93E /* Dependencies */,
 				5C1D06251C61C47E0002F93E /* ObjCZMQ */,
 				5C1D06311C61C47E0002F93E /* ObjCZMQTests */,
@@ -129,13 +126,10 @@
 		5C1D06251C61C47E0002F93E /* ObjCZMQ */ = {
 			isa = PBXGroup;
 			children = (
-				5C1D06BA1C63F8CE0002F93E /* libzmq-ios.a */,
-				5C1D06B11C63F5F90002F93E /* libzmq-osx.a */,
-				5C1D06B21C63F5F90002F93E /* zmq_utils.h */,
-				5C1D06B31C63F5F90002F93E /* zmq.h */,
-				5C1D06B01C63F1DC0002F93E /* module-osx.map */,
-				5C1D06C01C63FEF80002F93E /* module-ios.map */,
-				5C1D06261C61C47E0002F93E /* ObjCZMQ.h */,
+				5C1D06C81C644AA70002F93E /* zmq_utils.h */,
+				5C1D06C91C644AA70002F93E /* zmq.h */,
+				5C1D06C61C6449E40002F93E /* libzmq-ios.a */,
+				5C1D06C41C6449AF0002F93E /* libzmq-osx.a */,
 				5C1D06281C61C47E0002F93E /* Info.plist */,
 				5C1D06751C61C8B60002F93E /* ZMQContext.h */,
 				5C1D06761C61C8B60002F93E /* ZMQContext.m */,
@@ -169,7 +163,6 @@
 		5C1D065A1C61C5C20002F93E /* libzmq */ = {
 			isa = PBXGroup;
 			children = (
-				5C1D065D1C61C5C20002F93E /* pull_compile_libzmq_git.sh */,
 			);
 			path = libzmq;
 			sourceTree = "<group>";
@@ -193,10 +186,9 @@
 			files = (
 				5C1D067D1C6234460002F93E /* ZMQError.h in Headers */,
 				5C1D06BE1C63F9AD0002F93E /* ObjCZMQ.pch in Headers */,
-				5C1D06B61C63F5F90002F93E /* zmq_utils.h in Headers */,
+				5C1D06CA1C644AA70002F93E /* zmq_utils.h in Headers */,
+				5C1D06CB1C644AA70002F93E /* zmq.h in Headers */,
 				5C1D06831C62346A0002F93E /* ZMQException.h in Headers */,
-				5C1D06B81C63F5F90002F93E /* zmq.h in Headers */,
-				5C1D06271C61C47E0002F93E /* ObjCZMQ.h in Headers */,
 				5C1D06771C61C8B60002F93E /* ZMQContext.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,11 +199,8 @@
 			files = (
 				5C1D067E1C6234460002F93E /* ZMQError.h in Headers */,
 				5C1D06BF1C63F9AD0002F93E /* ObjCZMQ.pch in Headers */,
-				5C1D06B71C63F5F90002F93E /* zmq_utils.h in Headers */,
 				5C1D06841C62346A0002F93E /* ZMQException.h in Headers */,
-				5C1D06B91C63F5F90002F93E /* zmq.h in Headers */,
 				5C1D06781C61C8B60002F93E /* ZMQContext.h in Headers */,
-				5C1D068C1C6235660002F93E /* ObjCZMQ.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +307,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C1D06621C61C5C20002F93E /* pull_compile_libzmq_git.sh in Resources */,
+				5C1D06CD1C6451610002F93E /* build_osx.sh in Resources */,
+				5C1D06CF1C645C410002F93E /* build_ios.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +341,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/dependencies/libzmq/pull_compile_libzmq_git.sh";
+			shellScript = "${PROJECT_DIR}/build_osx.sh";
 		};
 		5C1D06661C61C6250002F93E /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -364,7 +354,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/Dependencies/libzmq/pull_compile_libzmq_git.sh";
+			shellScript = "${PROJECT_DIR}/build_ios.sh";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -499,7 +489,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
+				DEFINES_MODULE = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -511,9 +501,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Dependencies/libzmq",
+					"$(PROJECT_DIR)/ObjCZMQ",
 				);
-				MODULEMAP_FILE = "ObjCZMQ/module-osx.map";
+				MODULEMAP_FILE = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blueskies-software.ObjCZMQ";
 				PRODUCT_MODULE_NAME = ObjCZMQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -525,7 +515,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
+				DEFINES_MODULE = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -537,9 +527,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Dependencies/libzmq",
+					"$(PROJECT_DIR)/ObjCZMQ",
 				);
-				MODULEMAP_FILE = "ObjCZMQ/module-osx.map";
+				MODULEMAP_FILE = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blueskies-software.ObjCZMQ";
 				PRODUCT_MODULE_NAME = ObjCZMQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -573,7 +563,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEFINES_MODULE = YES;
+				DEFINES_MODULE = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -586,9 +576,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Dependencies/libzmq",
+					"$(PROJECT_DIR)/ObjCZMQ",
 				);
-				MODULEMAP_FILE = "ObjCZMQ/module-ios.map";
+				MODULEMAP_FILE = "";
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blueskies-software.ObjCZMQ";
 				PRODUCT_MODULE_NAME = ObjCZMQiOS;
@@ -603,7 +593,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEFINES_MODULE = YES;
+				DEFINES_MODULE = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -616,9 +606,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Dependencies/libzmq",
+					"$(PROJECT_DIR)/ObjCZMQ",
 				);
-				MODULEMAP_FILE = "ObjCZMQ/module-ios.map";
+				MODULEMAP_FILE = "";
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blueskies-software.ObjCZMQ";
 				PRODUCT_MODULE_NAME = ObjCZMQiOS;
