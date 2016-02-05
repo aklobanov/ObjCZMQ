@@ -18,8 +18,13 @@ Pod::Spec.new do |s|
   s.libraries = 'libc++'
   s.prepare_command = <<-CMD
     ./autogen.sh
-    ./configure --disable-dependency-tracking --enable-static --disable-shared --host=arm-apple-darwin \
+    ./configure --disable-dependency-tracking \
+                --enable-static \
+                --disable-shared \
+                --host=arm-apple-darwin \
                 --prefix="build" \
-                --without-libsodium --disable-perf --disable-curve-keygen
+                --without-libsodium \
+                --disable-perf \
+                --disable-curve-keygen
   CMD
 end
