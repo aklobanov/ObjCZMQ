@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name = 'libzmq_master'
+  s.name = 'libzmq'
   s.version = '1.0'
   s.summary = 'ZeroMQ'
   s.description  = <<-DESC
@@ -17,14 +17,14 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.libraries = 'libc++'
   s.prepare_command = <<-CMD
-#    ./autogen.sh
-#    ./configure --disable-dependency-tracking \
-#                --enable-static \
-#                --disable-shared \
-#                --host=arm-apple-darwin \
-#                --prefix="build" \
-#                --without-libsodium \
-#                --disable-perf \
-#                --disable-curve-keygen
+    libzmq/autogen.sh
+    libzmq/configure --disable-dependency-tracking \
+                --enable-static \
+                --disable-shared \
+                --host=arm-apple-darwin \
+                --prefix="build" \
+                --without-libsodium \
+                --disable-perf \
+                --disable-curve-keygen
   CMD
 end
