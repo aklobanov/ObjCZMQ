@@ -16,4 +16,10 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.9'
   s.ios.deployment_target = '8.0'
   s.libraries = 'c++'
+  s.prepare_command = <<-CMD
+        CURRENT_DIR="${PWD}"
+        cd Submodules/libzmq
+        ./autogen.sh
+        cd "${CURRENT_DIR}"
+  CMD
 end
