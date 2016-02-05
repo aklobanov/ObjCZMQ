@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
                 --enable-static \
                 --disable-shared \
                 --host=arm-apple-darwin \
-                --prefix="Submodules/libzmq/lib" \
+                --prefix="${PWD}/lib" \
                 --without-libsodium \
                 --disable-perf \
                 --disable-curve-keygen
