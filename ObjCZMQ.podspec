@@ -19,9 +19,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.frameworks = 'Foundation'
   s.libraries = 'libc++'
-  s.prepare_command = <<-CMD
-    ObjCZMQ/build_ios.sh
-  CMD
   s.ios.vendored_library = 'ObjCZMQ/ObjCZMQ/libzmq-ios.a'
   s.osx.vendored_library = 'ObjCZMQ/ObjCZMQ/libzmq-osx.a'
 end
