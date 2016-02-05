@@ -1,4 +1,0 @@
-module ObjCZMQiOS [system] {
-    header "ObjCZMQ.h"
-    export *
-}
