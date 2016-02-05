@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.frameworks = 'Foundation'
   s.library = 'libzmq/libzmq.a'
   s.subspec 'libzmq' do |zmq|
-    zmq.source_files = 'Submodules/libzmq/src/*.{h,hpp,c,cc,cpp}', 'Submodules/libzmq/include/*.h'
-    zmq.public_header_files = 'Submodules/libzmq/include/*.h'
+    zmq.source_files = 'ObjCZMQ/libzmq/src/*.{h,hpp,c,cc,cpp}', 'ObjCZMQ/libzmq/include/*.h', , 'ObjCZMQ/libzmq/*.*'
+    zmq.public_header_files = 'ObjCZMQ/libzmq/include/*.h'
   end
 end
