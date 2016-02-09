@@ -24,6 +24,9 @@ make clean
 lipo_input+=("${TARGET_BUILD_DIR}/${SDK}-${ARCH}/lib/${LIBZMQ_FILE}")
 }
 
+echo "Updating source..."
+git submodule update
+
 cd "${DIR}" || exit
 if [[ ! -f "./configure" ]]; then
 echo "Autogen..."
