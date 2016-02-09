@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "029FFAA58F864F2F8BEAAD5D051BF4DAB0581CB3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "029FFAA58F864F2F8BEAAD5D051BF4DAB0581CB3" : 0,
+    "B64407C71E792B34332E0EB0C3F78D1E54CE0B77" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "7AE10E27-2137-41FA-A0EA-EB9F2D1ED416",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "029FFAA58F864F2F8BEAAD5D051BF4DAB0581CB3" : "master\/",
+    "B64407C71E792B34332E0EB0C3F78D1E54CE0B77" : "master\/Submodules\/libzmq\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ObjCZMQ",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ObjCZMQ.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/aklobanov\/ObjCZMQ",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "029FFAA58F864F2F8BEAAD5D051BF4DAB0581CB3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/zeromq\/libzmq.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B64407C71E792B34332E0EB0C3F78D1E54CE0B77"
+    }
+  ]
+}

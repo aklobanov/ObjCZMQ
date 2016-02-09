@@ -1,26 +1,24 @@
-Pod::Spec.new do |s|
-  s.name = 'ObjCZMQ'
-  s.version = '1.0'
-  s.summary = 'Objective-C binding for ZeroMQ'
-  s.description  = <<-DESC
+Pod::Spec.new do |spec|
+  spec.name = 'ObjCZMQ'
+  spec.version = '1.0'
+  spec.summary = 'Objective-C binding for ZeroMQ'
+  spec.description = <<-DESC
     Bundled with ZeroMQ library.
     This is an Objective-C version of the reference ZeroMQ object-oriented C API. It follows the guidelines laid out by the official "Guidelines for ZeroMQ bindings".
     DESC
-  s.homepage     = "https://github.com/aklobanov/ObjCZMQ"
-  s.license = 'MIT'
-  s.author = { 'Alexey Lobanov' => 'aklobanov@gmail.com' }
-  s.social_media_url = 'https://www.facebook.com/aklobanov'
-  s.source = { :git => 'https://github.com/aklobanov/ObjCZMQ.git', :tag => s.version, :submodules => true }
-  s.source_files = 'ObjCZMQ/*.{h,m,pch}'
-  s.public_header_files = 'ObjCZMQ/*.{h,hpp}'
-  s.platform     = :ios, '8.0', :osx, '10.9'
-  s.requires_arc = true
-  s.osx.deployment_target = '10.9'
-  s.ios.deployment_target = '8.0'
-  s.frameworks = 'Foundation'
-  s.library = 'libzmq/libzmq.a'
-  s.subspec 'libzmq' do |zmq|
-    zmq.source_files = 'Submodules/libzmq/src/*.{h,hpp,c,cc,cpp}', 'Submodules/libzmq/include/*.h', 'Submodules/libzmq/**/*'
-    zmq.public_header_files = 'Submodules/libzmq/include/*.h'
-  end
+  spec.homepage = "https://github.com/aklobanov/ObjCZMQ"
+  spec.license = 'MIT'
+  spec.author = { 'Alexey Lobanov' => 'aklobanov@gmail.com' }
+  spec.social_media_url = 'https://www.facebook.com/aklobanov'
+  spec.source = { :git => 'https://github.com/aklobanov/ObjCZMQ.git', :tag => s.version }
+  spec.source_files = 'ObjCZMQ/*.{h,m,pch}'
+  spec.public_header_files = 'ObjCZMQ/*.{h,hpp}'
+  spec.platform = :ios, '8.0', :osx, '10.9'
+  spec.requires_arc = true
+  spec.osx.deployment_target = '10.9'
+  spec.ios.deployment_target = '8.0'
+  spec.frameworks = 'Foundation'
+#  spec.resources = "ObjCZMQ/ObjCZMQResources.bundle"
+  spec.osx.vendored_frameworks = "ObjCZMQ/ObjCZMQ.framework"
+  spec.ios.vendored_frameworks = "ObjCZMQ/ObjCZMQiOS.framework"
 end

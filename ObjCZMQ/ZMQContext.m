@@ -121,6 +121,7 @@
 - (BOOL)blocky
 {
 //    return ([self getOption:ZMQ_BLOCKY] != 0);
+    return YES;
 }
 /*
 - (NSInteger)ioThreads
