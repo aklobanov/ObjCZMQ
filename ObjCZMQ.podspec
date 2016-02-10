@@ -19,6 +19,7 @@ spec.source = { :git => 'https://github.com/aklobanov/ObjCZMQ.git', :tag => spec
   spec.osx.deployment_target = '10.9'
   spec.ios.deployment_target = '8.0'
   spec.frameworks = 'Foundation'
+  spec.libraries = 'c++'
 #  spec.resources = "ObjCZMQ/FMW/ObjCZMQResources.bundle"
   spec.osx.vendored_frameworks = "FMW/ObjCZMQ.framework"
   spec.ios.vendored_frameworks = "FMW/ObjCZMQiOS.framework"
