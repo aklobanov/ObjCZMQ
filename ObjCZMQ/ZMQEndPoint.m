@@ -109,10 +109,10 @@ static NSString *kTransportEPGM     = @"epgm://";
             endPoint = [NSString stringWithFormat:@"%@%@",kTransportINPROC,_endPoint];
             break;
         case kZMQSocketTransportPGM:
-            endPoint = [NSString stringWithFormat:@"%@%@:%@:%li",kTransportPGM,_iface,_endPoint,_port];
+            endPoint = [NSString stringWithFormat:@"%@%@:%@:%li",kTransportPGM,_iface,_endPoint,(long)_port];
             break;
         case kZMQSocketTransportEPGM:
-            endPoint = [NSString stringWithFormat:@"%@%@:%@:%li",kTransportEPGM,_iface,_endPoint,_port];
+            endPoint = [NSString stringWithFormat:@"%@%@:%@:%li",kTransportEPGM,_iface,_endPoint,(long)_port];
             break;
         default:
             endPoint = [NSString stringWithFormat:@"%@%@:%li",kTransportTCP,_endPoint,(long)_port];

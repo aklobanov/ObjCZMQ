@@ -12,4 +12,5 @@
 
 @interface ZMQError : NSError
 - (instancetype)init;
+- (instancetype)initWithCode:(int)code;
 @end
