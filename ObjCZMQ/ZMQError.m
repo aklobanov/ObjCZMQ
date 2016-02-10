@@ -20,8 +20,14 @@
 #if DEBUG >= LOCAL_LEVEL_1
     NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
 #endif
+    return [self initWithCode:zmq_errno()];
+}
+- (instancetype)initWithCode:(int)code
+{
+#if DEBUG >= LOCAL_LEVEL_1
+    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+#endif
     static NSString *domain = kZMQErrorDomain;
-    int code = zmq_errno();
     self = [super initWithDomain:domain code:(NSInteger)code userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithUTF8String:zmq_strerror(code)]}];
     return self;
 }

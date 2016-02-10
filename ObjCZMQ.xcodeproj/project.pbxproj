@@ -35,6 +35,14 @@
 		5C86BA451C6AA7380069591D /* ObjZMQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C86BA431C6AA7380069591D /* ObjZMQ.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5C86BA471C6AB7370069591D /* ObjCZMQ.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5C1D06231C61C47E0002F93E /* ObjCZMQ.framework */; };
 		5C86BA491C6AB7E80069591D /* ObjCZMQiOS.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5C1D06421C61C5430002F93E /* ObjCZMQiOS.framework */; };
+		5C86BA4C1C6B28CA0069591D /* ZMQSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C86BA4A1C6B28CA0069591D /* ZMQSocket.h */; };
+		5C86BA4D1C6B28CA0069591D /* ZMQSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C86BA4A1C6B28CA0069591D /* ZMQSocket.h */; };
+		5C86BA4E1C6B28CA0069591D /* ZMQSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C86BA4B1C6B28CA0069591D /* ZMQSocket.m */; };
+		5C86BA4F1C6B28CA0069591D /* ZMQSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C86BA4B1C6B28CA0069591D /* ZMQSocket.m */; };
+		5C86BA521C6B53040069591D /* ZMQEndPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C86BA501C6B53040069591D /* ZMQEndPoint.h */; };
+		5C86BA531C6B53040069591D /* ZMQEndPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C86BA501C6B53040069591D /* ZMQEndPoint.h */; };
+		5C86BA541C6B53040069591D /* ZMQEndPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C86BA511C6B53040069591D /* ZMQEndPoint.m */; };
+		5C86BA551C6B53040069591D /* ZMQEndPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C86BA511C6B53040069591D /* ZMQEndPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -647,6 +655,10 @@
 		5C86B9F91C6A71E50069591D /* libzmq-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libzmq-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C86BA071C6A72100069591D /* libzmq-osx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libzmq-osx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C86BA431C6AA7380069591D /* ObjZMQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjZMQ.h; sourceTree = "<group>"; };
+		5C86BA4A1C6B28CA0069591D /* ZMQSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMQSocket.h; sourceTree = "<group>"; };
+		5C86BA4B1C6B28CA0069591D /* ZMQSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMQSocket.m; sourceTree = "<group>"; };
+		5C86BA501C6B53040069591D /* ZMQEndPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMQEndPoint.h; sourceTree = "<group>"; };
+		5C86BA511C6B53040069591D /* ZMQEndPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMQEndPoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -715,6 +727,10 @@
 				5C1D06821C62346A0002F93E /* ZMQException.m */,
 				5C1D06BD1C63F9AD0002F93E /* ObjCZMQ.pch */,
 				5C86BA431C6AA7380069591D /* ObjZMQ.h */,
+				5C86BA4A1C6B28CA0069591D /* ZMQSocket.h */,
+				5C86BA4B1C6B28CA0069591D /* ZMQSocket.m */,
+				5C86BA501C6B53040069591D /* ZMQEndPoint.h */,
+				5C86BA511C6B53040069591D /* ZMQEndPoint.m */,
 			);
 			path = ObjCZMQ;
 			sourceTree = "<group>";
@@ -1845,9 +1861,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C86BA4C1C6B28CA0069591D /* ZMQSocket.h in Headers */,
 				5C86BA441C6AA7380069591D /* ObjZMQ.h in Headers */,
 				5C86BA3D1C6AA6930069591D /* ZMQContext.h in Headers */,
 				5C86BA3E1C6AA6930069591D /* ZMQError.h in Headers */,
+				5C86BA521C6B53040069591D /* ZMQEndPoint.h in Headers */,
 				5C86BA3F1C6AA6930069591D /* ZMQException.h in Headers */,
 				5C86BA421C6AA6EA0069591D /* ObjCZMQ.pch in Headers */,
 			);
@@ -1857,9 +1875,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C86BA4D1C6B28CA0069591D /* ZMQSocket.h in Headers */,
 				5C86BA451C6AA7380069591D /* ObjZMQ.h in Headers */,
 				5C1D067E1C6234460002F93E /* ZMQError.h in Headers */,
 				5C1D06841C62346A0002F93E /* ZMQException.h in Headers */,
+				5C86BA531C6B53040069591D /* ZMQEndPoint.h in Headers */,
 				5C1D06781C61C8B60002F93E /* ZMQContext.h in Headers */,
 				5C1D06BF1C63F9AD0002F93E /* ObjCZMQ.pch in Headers */,
 			);
@@ -2082,7 +2102,9 @@
 			files = (
 				5C86BA3A1C6AA6720069591D /* ZMQContext.m in Sources */,
 				5C86BA3B1C6AA6720069591D /* ZMQError.m in Sources */,
+				5C86BA541C6B53040069591D /* ZMQEndPoint.m in Sources */,
 				5C86BA3C1C6AA6720069591D /* ZMQException.m in Sources */,
+				5C86BA4E1C6B28CA0069591D /* ZMQSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2100,7 +2122,9 @@
 			files = (
 				5C1D067A1C61C8B60002F93E /* ZMQContext.m in Sources */,
 				5C1D06801C6234460002F93E /* ZMQError.m in Sources */,
+				5C86BA551C6B53040069591D /* ZMQEndPoint.m in Sources */,
 				5C1D06861C62346A0002F93E /* ZMQException.m in Sources */,
+				5C86BA4F1C6B28CA0069591D /* ZMQSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

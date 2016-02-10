@@ -6,10 +6,11 @@
 //  Copyright © 2016 Blue Skies Software. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "ZMQContext.h"
 #import "ZMQException.h"
+#import "ZMQSocket.h"
 #include "zmq.h"
+#import <libkern/OSAtomic.h>
 
 #define LOCAL_LEVEL_0 0
 #define LOCAL_LEVEL_1 1
@@ -17,7 +18,9 @@
 
 @implementation ZMQContext
 {
-    void *_context;
+    void            *_context;
+    OSSpinLock      _socketsLock;
+    NSMutableSet    *_sockets;
 }
 - (instancetype)init
 {
@@ -35,8 +38,32 @@
 #endif
             @throw [ZMQException new];
         }
+        _sockets = [NSMutableSet new];
     }
     return self;
+}
+- (void)dealloc
+{
+#if DEBUG >= LOCAL_LEVEL_1
+    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+#endif
+    _sockets = nil;
+}
+- (void *)context
+{
+#if DEBUG >= LOCAL_LEVEL_1
+    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+#endif
+    return _context;
+}
+- (ZMQSocket *)socketWithType:(ZMQSocketType)type {
+    ZMQSocket *	socket = [ZMQSocket socketWithContext:self withType:type];
+    if (socket != nil) {
+        OSSpinLockLock(&_socketsLock); {
+            [_sockets addObject:socket];
+        } OSSpinLockUnlock(&_socketsLock);
+    }
+    return socket;
 }
 - (BOOL)destroy
 {
@@ -113,6 +140,7 @@
     }
     return ret;
 }
+/*
 - (void)setBlocky:(BOOL)blocky
 {
 //    [self setOption:ZMQ_BLOCKY value:blocky ? 1 : 0];
@@ -123,7 +151,7 @@
 //    return ([self getOption:ZMQ_BLOCKY] != 0);
     return YES;
 }
-/*
+
 - (NSInteger)ioThreads
 {
     set {
