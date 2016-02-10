@@ -6,7 +6,7 @@ lipo_input=( )
 compile_zmq ()
 {
 export MACOSX_DEPLOYMENT_TARGET="10.9"
-export CFLAGS="${DEPLOYMENT_TARGET_CLANG_FLAG_PREFIX}${IPHONEOS_DEPLOYMENT_TARGET}"
+export CFLAGS="-${DEPLOYMENT_TARGET_CLANG_FLAG_NAME}=${IPHONEOS_DEPLOYMENT_TARGET}"
 export ARCH=$1
 export SDK=$2
 export HOST=$3
@@ -19,6 +19,8 @@ export LDFLAGS="${CFLAGS}"
 if [[ ! -f "${TARGET_BUILD_DIR}/${SDK}-${ARCH}/lib/${LIBZMQ_FILE}" ]]; then
 mkdir -p "${TARGET_BUILD_DIR}/${SDK}-${ARCH}/include" "${TARGET_BUILD_DIR}/${SDK}-${ARCH}/lib"
 make distclean
+echo "ENVIRONMENT..."
+export
 "./configure" --disable-dependency-tracking --enable-static --disable-shared --host=${HOST} --prefix="${TARGET_BUILD_DIR}/${SDK}-${ARCH}" --without-libsodium --enable-perf --disable-curve-keygen
 make
 make install
@@ -36,8 +38,9 @@ if [[ ! -f "./configure" ]]; then
 echo "Autogen..."
 ./autogen.sh
 fi
-
-for A in ${VALID_ARCHS}
+MY_ARCHS="arm64 armv7 armv7s"
+#for A in ${VALID_ARCHS}
+for A in ${MY_ARCHS}
 do
 echo "Compiling libzmq for $A..."
 compile_zmq "$A" "iphoneos" "arm-apple-darwin"
