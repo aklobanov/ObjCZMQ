@@ -16,12 +16,14 @@ export CFLAGS="${CFLAGS} -arch ${ARCH} -fembed-bitcode"
 export CXXFLAGS="${CFLAGS}"
 export CPPFLAGS="${CFLAGS}"
 export LDFLAGS="${CFLAGS}"
+if [[ ! -f "${TARGET_BUILD_DIR}/${SDK}-${ARCH}/lib/${LIBZMQ_FILE}" ]]; then
 mkdir -p "${TARGET_BUILD_DIR}/${SDK}-${ARCH}/include" "${TARGET_BUILD_DIR}/${SDK}-${ARCH}/lib"
 make distclean
 "./configure" --disable-dependency-tracking --enable-static --disable-shared --host=${HOST} --prefix="${TARGET_BUILD_DIR}/${SDK}-${ARCH}" --without-libsodium --enable-perf --disable-curve-keygen
 make
 make install
 make clean
+fi
 lipo_input+=("${TARGET_BUILD_DIR}/${SDK}-${ARCH}/lib/${LIBZMQ_FILE}")
 }
 

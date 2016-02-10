@@ -2222,6 +2222,7 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blueskies-software.ObjCZMQ";
 				PRODUCT_MODULE_NAME = ObjCZMQ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2299,6 +2300,7 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "";
+				ONLY_ACTIVE_ARCH = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.blueskies-software.ObjCZMQ";
 				PRODUCT_MODULE_NAME = ObjCZMQiOS;
