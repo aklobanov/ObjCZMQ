@@ -33,6 +33,8 @@
 		5C86BA421C6AA6EA0069591D /* ObjCZMQ.pch in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06BD1C63F9AD0002F93E /* ObjCZMQ.pch */; };
 		5C86BA441C6AA7380069591D /* ObjZMQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C86BA431C6AA7380069591D /* ObjZMQ.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5C86BA451C6AA7380069591D /* ObjZMQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C86BA431C6AA7380069591D /* ObjZMQ.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5C86BA471C6AB7370069591D /* ObjCZMQ.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5C1D06231C61C47E0002F93E /* ObjCZMQ.framework */; };
+		5C86BA491C6AB7E80069591D /* ObjCZMQiOS.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5C1D06421C61C5430002F93E /* ObjCZMQiOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,29 @@
 			remoteInfo = ObjCZMQ;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5C86BA461C6AB6FD0069591D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(PROJECT_DIR)/FMW";
+			dstSubfolderSpec = 0;
+			files = (
+				5C86BA471C6AB7370069591D /* ObjCZMQ.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C86BA481C6AB7D70069591D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(PROJECT_DIR)/FMW";
+			dstSubfolderSpec = 0;
+			files = (
+				5C86BA491C6AB7E80069591D /* ObjCZMQiOS.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5C1D06231C61C47E0002F93E /* ObjCZMQ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjCZMQ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1869,6 +1894,7 @@
 				5C1D061F1C61C47E0002F93E /* Frameworks */,
 				5C1D06201C61C47E0002F93E /* Headers */,
 				5C1D06211C61C47E0002F93E /* Resources */,
+				5C86BA461C6AB6FD0069591D /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1905,6 +1931,7 @@
 				5C1D063E1C61C5430002F93E /* Frameworks */,
 				5C1D063F1C61C5430002F93E /* Headers */,
 				5C1D06401C61C5430002F93E /* Resources */,
+				5C86BA481C6AB7D70069591D /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -2407,6 +2434,7 @@
 				5C86BA011C6A71E50069591D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5C86BA0F1C6A72100069591D /* Build configuration list for PBXNativeTarget "zmq-osx" */ = {
 			isa = XCConfigurationList;
@@ -2415,6 +2443,7 @@
 				5C86BA111C6A72100069591D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
