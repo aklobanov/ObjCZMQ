@@ -5,7 +5,7 @@ lipo_input=( )
 
 compile_zmq ()
 {
-export CFLAGS="${DEPLOYMENT_TARGET_CLANG_FLAG_PREFIX}${MACOSX_DEPLOYMENT_TARGET}"
+export CFLAGS="-${DEPLOYMENT_TARGET_CLANG_FLAG_NAME}=${MACOSX_DEPLOYMENT_TARGET}"
 export ARCH=$1
 export SDK=$2
 export HOST=$3
@@ -25,7 +25,6 @@ lipo_input+=("${TARGET_BUILD_DIR}/${SDK}-${ARCH}/lib/${LIBZMQ_FILE}")
 }
 
 echo "Updating source..."
-cd "${PROJECT_DIR}" || exit
 git submodule init
 git submodule update
 
