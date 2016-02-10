@@ -25,6 +25,7 @@ lipo_input+=("${TARGET_BUILD_DIR}/${SDK}-${ARCH}/lib/${LIBZMQ_FILE}")
 }
 
 echo "Updating source..."
+cd "${PROJECT_DIR}" || exit
 git submodule init
 git submodule update
 
