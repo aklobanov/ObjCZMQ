@@ -7,19 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ZMQSocket.h"
 
 @interface ZMQContext : NSObject
-@property (atomic, readonly) void *context;
-//@property (nonatomic, assign)   NSInteger ioThreads;
-//@property (nonatomic, assign)   NSInteger maxSockets;
-//@property (nonatomic, assign)   BOOL      useIPV6;
-//@property (nonatomic, readonly) NSInteger socketLimit;
-//@property (nonatomic, assign)   NSInteger threadSchedulingPolicy;
-//@property (nonatomic, assign)   BOOL      blocky;
+@property (nonatomic, readonly) void *context;
+@property (nonatomic, readonly) int socketLimit;
+@property (nonatomic, assign)   int maxSockets;
+@property (nonatomic, assign)   int ioThreads;
+@property (nonatomic, assign, getter=isIPV6)   BOOL useIPV6;
+@property (nonatomic, assign, getter=isBlocky) BOOL blocky;
 - (instancetype)init;
-- (BOOL)destroy;
-- (BOOL)terminate;
-- (BOOL)shutdown;
-- (BOOL)setOption:(int)option value:(int)value;
-
+- (void)setThreadSchedulingPolicy:(int)threadSchedulingPolicy;
+- (void)setThreadPriority:(int)threadPriority;
+- (void)terminate;
+- (ZMQSocket *)socketWithType:(ZMQSocketType)type;
+- (ZMQSocket *)socketWithType:(ZMQSocketType)type onQueue:(dispatch_queue_t)queue;
 @end

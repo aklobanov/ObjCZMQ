@@ -35,25 +35,29 @@ typedef NS_ENUM(NSUInteger,ZMQSocketType)
 };
 @interface ZMQSocket : NSObject
 // Fabric methods
-+ (ZMQSocket *)socketWithContext:(ZMQContext *)context withType:(ZMQSocketType)type;
-+ (ZMQSocket *)socketWithContext:(ZMQContext *)context withType:(ZMQSocketType)type onQueue:(dispatch_queue_t)queue;
++ (ZMQSocket *)socketWithContext:(void *)context withType:(ZMQSocketType)type;
++ (ZMQSocket *)socketWithContext:(void *)context withType:(ZMQSocketType)type onQueue:(dispatch_queue_t)queue;
 // Init methods
-- (instancetype)initWithContext:(ZMQContext *)context withType:(ZMQSocketType)type;
-- (instancetype)initWithContext:(ZMQContext *)context withType:(ZMQSocketType)type onQueue:(dispatch_queue_t)queue;
+- (instancetype)initWithContext:(void *)context withType:(ZMQSocketType)type;
+- (instancetype)initWithContext:(void *)context withType:(ZMQSocketType)type onQueue:(dispatch_queue_t)queue;
 // Sync methods
 - (BOOL)closeSyncWithError:(ZMQError **)error;
-- (BOOL)connectSyncWithEndPoint:(ZMQEndPoint *)endPoint withError:(ZMQError **)error;
+- (BOOL)connectSyncWithEndPoint:(ZMQEndPoint *)endPoint withError:(ZMQError *__autoreleasing *)error;
 - (BOOL)disconnectSyncWithError:(ZMQError **)error;
-- (BOOL)bindSyncWithEndPoint:(ZMQEndPoint *)endPoint withError:(ZMQError **)error;
-- (BOOL)sendSyncData:(NSData *)data multiPart:(BOOL)isMultiPart withError:(ZMQError **)error;
-- (BOOL)sendSyncString:(NSString *)string multiPart:(BOOL)isMultiPart withError:(ZMQError **)error;
-- (NSData *)receiveSyncWithError:(ZMQError **)error;
+- (BOOL)bindSyncWithEndPoint:(ZMQEndPoint *)endPoint withError:(ZMQError *__autoreleasing *)error;
+- (BOOL)sendSyncData:(NSData *)data multiPart:(BOOL)isMultiPart withError:(ZMQError *__autoreleasing *)error;
+- (BOOL)sendSyncData:(NSData *)data withPartSize:(NSUInteger)size withError:(ZMQError *__autoreleasing *)error;
+- (BOOL)sendSyncString:(NSString *)string multiPart:(BOOL)isMultiPart withError:(ZMQError *__autoreleasing *)error;
+- (BOOL)sendSyncString:(NSString *)string withPartSize:(NSUInteger)size withError:(ZMQError *__autoreleasing *)error;
+- (NSData *)receiveSyncWithError:(ZMQError *__autoreleasing *)error;
 // Async mathods
 - (void)closeAsyncWithCompletion:(void (^)(BOOL success,ZMQError *error))completion;
 - (void)connectAsyncWithEndPoint:(ZMQEndPoint *)endPoint withCompletion:(void (^)(BOOL success,ZMQError *error))completion;
 - (void)disconnectAsyncWithCompletion:(void (^)(BOOL success,ZMQError *error))completion;
 - (void)bindAsyncWithEndPoint:(ZMQEndPoint *)endPoint withCompletion:(void (^)(BOOL success,ZMQError *error))completion;
 - (void)sendAsyncData:(NSData *)data multiPart:(BOOL)isMultiPart withCompletion:(void (^)(BOOL success,ZMQError *error))completion;
+- (void)sendAsyncData:(NSData *)data withPartSize:(NSUInteger)size withCompletion:(void (^)(BOOL success,ZMQError *error))completion;
 - (void)sendAsyncString:(NSString *)string multiPart:(BOOL)isMultiPart withCompletion:(void (^)(BOOL success,ZMQError *error))completion;
+- (void)sendAsyncString:(NSString *)string withPartSize:(NSUInteger)size withCompletion:(void (^)(BOOL success,ZMQError *error))completion;
 - (void)receiveAsyncWithCompletion:(void (^)(NSData *data,ZMQError *error))completion;
 @end

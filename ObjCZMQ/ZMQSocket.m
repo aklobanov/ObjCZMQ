@@ -20,14 +20,14 @@
     ZMQEndPoint         *_endPoint;
     dispatch_queue_t    _queue;
 }
-+ (ZMQSocket *)socketWithContext:(ZMQContext *)context withType:(ZMQSocketType)type
++ (ZMQSocket *)socketWithContext:(void *)context withType:(ZMQSocketType)type
 {
 #if DEBUG >= LOCAL_LEVEL_1
     NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
 #endif
     return [ZMQSocket socketWithContext:context withType:type onQueue:dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)];
 }
-+ (ZMQSocket *)socketWithContext:(ZMQContext *)context withType:(ZMQSocketType)type onQueue:(dispatch_queue_t)queue
++ (ZMQSocket *)socketWithContext:(void *)context withType:(ZMQSocketType)type onQueue:(dispatch_queue_t)queue
 {
 #if DEBUG >= LOCAL_LEVEL_1
     NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
@@ -35,14 +35,14 @@
     ZMQSocket *socket = [[ZMQSocket alloc] initWithContext:context withType:type onQueue:queue];
     return socket;
 }
-- (instancetype)initWithContext:(ZMQContext *)context withType:(ZMQSocketType)type
+- (instancetype)initWithContext:(void *)context withType:(ZMQSocketType)type
 {
 #if DEBUG >= LOCAL_LEVEL_1
     NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
 #endif
     return [self initWithContext:context withType:type onQueue:dispatch_get_global_queue(QOS_CLASS_UTILITY, 0)];
 }
-- (instancetype)initWithContext:(ZMQContext *)context withType:(ZMQSocketType)type onQueue:(dispatch_queue_t)queue
+- (instancetype)initWithContext:(void *)context withType:(ZMQSocketType)type onQueue:(dispatch_queue_t)queue
 {
 #if DEBUG >= LOCAL_LEVEL_1
     NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
@@ -51,7 +51,7 @@
     if (self != nil)
     {
         dispatch_sync(queue, ^{
-            _socket = zmq_socket(context.context,(int)type);
+            _socket = zmq_socket(context,(int)type);
         });
         if (_socket == NULL)
         {
@@ -81,7 +81,7 @@
     _socket = NULL;
     _queue = NULL;
 }
-- (BOOL)closeSyncWithError:(ZMQError **)error
+- (BOOL)closeSyncWithError:(ZMQError *__autoreleasing *)error
 {
 #if DEBUG >= LOCAL_LEVEL_1
     NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
@@ -133,7 +133,7 @@
         }
     });
 }
-- (BOOL)connectSyncWithEndPoint:(ZMQEndPoint *)endPoint withError:(ZMQError **)error
+- (BOOL)connectSyncWithEndPoint:(ZMQEndPoint *)endPoint withError:(ZMQError *__autoreleasing *)error
 {
 #if DEBUG >= LOCAL_LEVEL_1
     NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
@@ -182,7 +182,7 @@
         }
     });
 }
-- (BOOL)disconnectSyncWithError:(ZMQError **)error
+- (BOOL)disconnectSyncWithError:(ZMQError *__autoreleasing *)error
 {
 #if DEBUG >= LOCAL_LEVEL_1
     NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
@@ -244,7 +244,7 @@
         });
     }
 }
-- (BOOL)bindSyncWithEndPoint:(ZMQEndPoint *)endPoint withError:(ZMQError **)error
+- (BOOL)bindSyncWithEndPoint:(ZMQEndPoint *)endPoint withError:(ZMQError *__autoreleasing *)error
 {
 #if DEBUG >= LOCAL_LEVEL_1
     NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
@@ -293,7 +293,7 @@
         }
     });
 }
-- (BOOL)sendSyncData:(NSData *)data multiPart:(BOOL)isMultiPart withError:(ZMQError **)error
+- (BOOL)sendSyncData:(NSData *)data multiPart:(BOOL)isMultiPart withError:(ZMQError *__autoreleasing *)error
 {
 #if DEBUG >= LOCAL_LEVEL_1
     NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
@@ -310,6 +310,10 @@
                 if (ret == -1)
                 {
                     ret = zmq_errno();
+                }
+                else
+                {
+                    ret = 0;
                 }
             } while (ret == EAGAIN);
         });
@@ -341,13 +345,17 @@
     {
         dispatch_async(_queue, ^{
             ZMQError *error = nil;
-            int ret;
+            int ret = 0;
             const void *buff = [data bytes];
             do {
                 ret = zmq_send(_socket, buff, len, ZMQ_DONTWAIT | (isMultiPart?ZMQ_SNDMORE:0));
                 if (ret == -1)
                 {
                     ret = zmq_errno();
+                }
+                else
+                {
+                    ret = 0;
                 }
             } while (ret == EAGAIN);
             if (ret != 0)
@@ -359,6 +367,120 @@
                 completion((ret == 0), error);
             }
         });
+    }
+}
+- (BOOL)sendSyncData:(NSData *)data withPartSize:(NSUInteger)size withError:(ZMQError *__autoreleasing *)error
+{
+#if DEBUG >= LOCAL_LEVEL_1
+    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+#endif
+    NSUInteger len = [data length];
+    if (len < size)
+    {
+        return [self sendSyncData:data multiPart:NO withError:error];
+    }
+    NSData *part;
+    NSRange range;
+    for (NSUInteger i = 0; i < len; i += size)
+    {
+        range = NSMakeRange(i, size);
+        part = [data subdataWithRange:range];
+        if (![self sendSyncData:part multiPart:((len - i) != size) withError:error]) return NO;
+    }
+    if ((len % size) != 0)
+    {
+        range = NSMakeRange((len / size) * size, len % size);
+        part = [data subdataWithRange:range];
+        return [self sendSyncData:part multiPart:NO withError:error];
+    }
+    else return YES;
+}
+- (void)sendAsyncData:(NSData *)data withPartSize:(NSUInteger)size withCompletion:(void (^)(BOOL success,ZMQError *error))completion
+{
+#if DEBUG >= LOCAL_LEVEL_1
+    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+#endif
+    NSUInteger len = [data length];
+    if (len < size)
+    {
+        [self sendAsyncData:data multiPart:NO withCompletion:completion];
+    }
+    else
+    {
+        dispatch_async(_queue, ^{
+            ZMQError *error = nil;
+            int ret = -1;
+            void *buff = (void *)[data bytes];
+            void *ptr;
+            for (ptr = buff; (ptr - buff) < len; ptr += size)
+            {
+                do {
+                    ret = zmq_send(_socket, ptr, size, ZMQ_DONTWAIT | (((ptr - buff) != size)?ZMQ_SNDMORE:0));
+                    if (ret == -1)
+                    {
+                        ret = zmq_errno();
+                    }
+                    else
+                    {
+                        ret = 0;
+                    }
+                } while (ret == EAGAIN);
+                if (ret != 0)
+                {
+                    error = [[ZMQError alloc] initWithCode:ret];
+                    break;
+                }
+            }
+            if (((len % size) != 0) && (ret == 0))
+            {
+                do {
+                    ret = zmq_send(_socket, (ptr - size), (len % size), ZMQ_DONTWAIT);
+                    if (ret == -1)
+                    {
+                        ret = zmq_errno();
+                    }
+                    else
+                    {
+                        ret = 0;
+                    }
+                } while (ret == EAGAIN);
+                if (ret != 0)
+                {
+                    error = [[ZMQError alloc] initWithCode:ret];
+                }
+            }
+            if (completion != NULL)
+            {
+                completion((ret == 0), error);
+            }
+        });
+    }
+}
+- (BOOL)sendSyncString:(NSString *)string withPartSize:(NSUInteger)size withError:(ZMQError **)error
+{
+#if DEBUG >= LOCAL_LEVEL_1
+    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+#endif
+    if ([string length] < size)
+    {
+        return [self sendSyncString:string multiPart:NO withError:error];
+    }
+    const char *str = [string cStringUsingEncoding:NSUTF8StringEncoding];
+    return [self sendSyncData:[NSData dataWithBytesNoCopy:(void *)str length:strlen(str)] withPartSize:(NSUInteger)size withError:error];
+}
+- (void)sendAsyncString:(NSString *)string withPartSize:(NSUInteger)size withCompletion:(void (^)(BOOL success,ZMQError *error))completion
+{
+#if DEBUG >= LOCAL_LEVEL_1
+    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+#endif
+    if ([string length] < size)
+    {
+        [self sendAsyncString:string multiPart:NO withCompletion:completion];
+    }
+    else
+    {
+        const char *str = [string cStringUsingEncoding:NSUTF8StringEncoding];
+        [self sendAsyncData:[NSData dataWithBytesNoCopy:(void *)str length:strlen(str)] withPartSize:(NSUInteger)size withCompletion:completion];
     }
 }
 - (BOOL)sendSyncString:(NSString *)string multiPart:(BOOL)isMultiPart withError:(ZMQError **)error
@@ -395,7 +517,7 @@
         [self sendAsyncData:[NSData dataWithBytesNoCopy:(void *)str length:strlen(str)] multiPart:isMultiPart withCompletion:completion];
     }
 }
-- (NSData *)receiveSyncWithError:(ZMQError **)error
+- (NSData *)receiveSyncWithError:(ZMQError *__autoreleasing *)error
 {
 #if DEBUG >= LOCAL_LEVEL_1
     NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
@@ -416,6 +538,10 @@
                     if (ret == -1)
                     {
                         ret = zmq_errno();
+                    }
+                    else
+                    {
+                        ret = 0;
                     }
                 } while (ret == EAGAIN);
                 if (ret == 0)
@@ -472,6 +598,10 @@
                     if (ret == -1)
                     {
                         ret = zmq_errno();
+                    }
+                    else
+                    {
+                        ret = 0;
                     }
                 } while (ret == EAGAIN);
                 if (ret == 0)
