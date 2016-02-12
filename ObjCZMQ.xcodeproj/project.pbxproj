@@ -31,8 +31,8 @@
 		5C86BA401C6AA6CC0069591D /* libzmq-osx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C86BA071C6A72100069591D /* libzmq-osx.a */; };
 		5C86BA411C6AA6DD0069591D /* libzmq-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C86B9F91C6A71E50069591D /* libzmq-ios.a */; };
 		5C86BA421C6AA6EA0069591D /* ObjCZMQ.pch in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D06BD1C63F9AD0002F93E /* ObjCZMQ.pch */; };
-		5C86BA441C6AA7380069591D /* ObjZMQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C86BA431C6AA7380069591D /* ObjZMQ.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5C86BA451C6AA7380069591D /* ObjZMQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C86BA431C6AA7380069591D /* ObjZMQ.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5C86BA441C6AA7380069591D /* ObjCZMQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C86BA431C6AA7380069591D /* ObjCZMQ.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5C86BA451C6AA7380069591D /* ObjCZMQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C86BA431C6AA7380069591D /* ObjCZMQ.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5C86BA471C6AB7370069591D /* ObjCZMQ.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5C1D06231C61C47E0002F93E /* ObjCZMQ.framework */; };
 		5C86BA491C6AB7E80069591D /* ObjCZMQiOS.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5C1D06421C61C5430002F93E /* ObjCZMQiOS.framework */; };
 		5C86BA4C1C6B28CA0069591D /* ZMQSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C86BA4A1C6B28CA0069591D /* ZMQSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -654,7 +654,7 @@
 		5C1D094E1C64E89A0002F93E /* version.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = version.sh; sourceTree = "<group>"; };
 		5C86B9F91C6A71E50069591D /* libzmq-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libzmq-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C86BA071C6A72100069591D /* libzmq-osx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libzmq-osx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C86BA431C6AA7380069591D /* ObjZMQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjZMQ.h; sourceTree = "<group>"; };
+		5C86BA431C6AA7380069591D /* ObjCZMQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCZMQ.h; sourceTree = "<group>"; };
 		5C86BA4A1C6B28CA0069591D /* ZMQSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMQSocket.h; sourceTree = "<group>"; };
 		5C86BA4B1C6B28CA0069591D /* ZMQSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMQSocket.m; sourceTree = "<group>"; };
 		5C86BA501C6B53040069591D /* ZMQEndPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMQEndPoint.h; sourceTree = "<group>"; };
@@ -720,7 +720,7 @@
 			children = (
 				5C1D06281C61C47E0002F93E /* Info.plist */,
 				5C1D06BD1C63F9AD0002F93E /* ObjCZMQ.pch */,
-				5C86BA431C6AA7380069591D /* ObjZMQ.h */,
+				5C86BA431C6AA7380069591D /* ObjCZMQ.h */,
 				5C1D06751C61C8B60002F93E /* ZMQContext.h */,
 				5C1D06761C61C8B60002F93E /* ZMQContext.m */,
 				5C1D067B1C6234460002F93E /* ZMQError.h */,
@@ -1861,7 +1861,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C86BA441C6AA7380069591D /* ObjZMQ.h in Headers */,
+				5C86BA441C6AA7380069591D /* ObjCZMQ.h in Headers */,
 				5C86BA3D1C6AA6930069591D /* ZMQContext.h in Headers */,
 				5C86BA3E1C6AA6930069591D /* ZMQError.h in Headers */,
 				5C86BA4C1C6B28CA0069591D /* ZMQSocket.h in Headers */,
@@ -1875,7 +1875,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C86BA451C6AA7380069591D /* ObjZMQ.h in Headers */,
+				5C86BA451C6AA7380069591D /* ObjCZMQ.h in Headers */,
 				5C1D067E1C6234460002F93E /* ZMQError.h in Headers */,
 				5C1D06841C62346A0002F93E /* ZMQException.h in Headers */,
 				5C86BA4D1C6B28CA0069591D /* ZMQSocket.h in Headers */,
