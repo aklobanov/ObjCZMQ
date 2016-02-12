@@ -8,6 +8,8 @@
 
 #ifndef ObjCZMQ_h
 #define ObjCZMQ_h
+#import "zmq.h"
+#import "zmq_utils.h"
 #import "ZMQContext.h"
 #import "ZMQSocket.h"
 #import "ZMQEndPoint.h"

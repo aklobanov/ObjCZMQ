@@ -9,7 +9,6 @@
 #import "ZMQContext.h"
 #import "ZMQException.h"
 #import "ZMQSocket.h"
-#include "zmq.h"
 
 #define LOCAL_LEVEL_0 0
 #define LOCAL_LEVEL_1 1

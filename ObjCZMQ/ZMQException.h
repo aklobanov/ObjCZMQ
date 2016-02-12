@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ZMQError.h"
 
 #define kZMQExceptionName   @"ZMQ"
 #define kZMQExceptionKey    @"zmqErrorCode"
 
 @interface ZMQException : NSException
 - (instancetype)init;
++ (ZMQException *)exceptionWithError:(ZMQError *)error;
 @end

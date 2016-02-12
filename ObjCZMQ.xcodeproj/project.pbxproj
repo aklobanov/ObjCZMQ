@@ -43,6 +43,10 @@
 		5C86BA531C6B53040069591D /* ZMQEndPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C86BA501C6B53040069591D /* ZMQEndPoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5C86BA541C6B53040069591D /* ZMQEndPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C86BA511C6B53040069591D /* ZMQEndPoint.m */; };
 		5C86BA551C6B53040069591D /* ZMQEndPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C86BA511C6B53040069591D /* ZMQEndPoint.m */; };
+		5CE8608D1C6E53D700D7EAC4 /* zmq.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D07F01C64E8990002F93E /* zmq.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5CE8608E1C6E53D700D7EAC4 /* zmq_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D07F11C64E8990002F93E /* zmq_utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5CE8608F1C6E541600D7EAC4 /* zmq.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D07F01C64E8990002F93E /* zmq.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5CE860901C6E541600D7EAC4 /* zmq_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1D07F11C64E8990002F93E /* zmq_utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1867,6 +1871,8 @@
 				5C86BA4C1C6B28CA0069591D /* ZMQSocket.h in Headers */,
 				5C86BA521C6B53040069591D /* ZMQEndPoint.h in Headers */,
 				5C86BA3F1C6AA6930069591D /* ZMQException.h in Headers */,
+				5CE8608F1C6E541600D7EAC4 /* zmq.h in Headers */,
+				5CE860901C6E541600D7EAC4 /* zmq_utils.h in Headers */,
 				5C86BA421C6AA6EA0069591D /* ObjCZMQ.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1881,6 +1887,8 @@
 				5C86BA4D1C6B28CA0069591D /* ZMQSocket.h in Headers */,
 				5C86BA531C6B53040069591D /* ZMQEndPoint.h in Headers */,
 				5C1D06781C61C8B60002F93E /* ZMQContext.h in Headers */,
+				5CE8608D1C6E53D700D7EAC4 /* zmq.h in Headers */,
+				5CE8608E1C6E53D700D7EAC4 /* zmq_utils.h in Headers */,
 				5C1D06BF1C63F9AD0002F93E /* ObjCZMQ.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

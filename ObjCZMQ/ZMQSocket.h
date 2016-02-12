@@ -10,7 +10,6 @@
 #import "ZMQContext.h"
 #import "ZMQError.h"
 #import "ZMQEndPoint.h"
-#import "zmq.h"
 
 typedef NS_ENUM(NSUInteger,ZMQSocketType)
 {
