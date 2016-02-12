@@ -13,7 +13,7 @@
 	<dict>
 		<key>Headers/ObjCZMQ.h</key>
 		<data>
-		i7g7UK+1KrlWdZREWk/NbGtosMM=
+		FwlCz39slf8m8bJPtlZUGe8fi2Q=
 		</data>
 		<key>Headers/ZMQContext.h</key>
 		<data>
@@ -29,11 +29,19 @@
 		</data>
 		<key>Headers/ZMQException.h</key>
 		<data>
-		1gQJDbiDwZBlOok/U/qyiysilcs=
+		xj36REazN9FdWOKc06sJpIyDeL0=
 		</data>
 		<key>Headers/ZMQSocket.h</key>
 		<data>
-		nRkCkS8xHDedAuBhenbarZlPzWE=
+		t2dZYP6rHwMven2K6ei/rtJKgDU=
+		</data>
+		<key>Headers/zmq.h</key>
+		<data>
+		S5km3s1+u+PRYLk2lKc3/FbJmWI=
+		</data>
+		<key>Headers/zmq_utils.h</key>
+		<data>
+		cheTZGLXmTK7soCPQinkTKyAb7g=
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>

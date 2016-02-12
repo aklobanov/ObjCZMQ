@@ -635,4 +635,23 @@
         }
     });
 }
+- (BOOL)pollWithTimeout:(long)timeout withError:(ZMQError *__autoreleasing *)error
+{
+#if DEBUG >= LOCAL_LEVEL_1
+    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+#endif
+    __block ZMQError *err = nil;
+    __block int ret;
+    dispatch_sync(_queue, ^{
+        zmq_pollitem_t items [1];
+        items[0].socket = _socket;
+        items[0].events = ZMQ_POLLIN;
+        ret = zmq_poll(items, 1, timeout);
+    });
+    if (error != NULL)
+    {
+        *error = err;
+    }
+    return (ret >= 0);
+}
 @end
