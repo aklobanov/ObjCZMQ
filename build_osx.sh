@@ -18,8 +18,8 @@ export LDFLAGS="${CFLAGS}"
 if [[ ! -f "${TARGET_BUILD_DIR}/${SDK}-${ARCH}/lib/${LIBZMQ_FILE}" ]]; then
 mkdir -p "${TARGET_BUILD_DIR}/${SDK}-${ARCH}/include" "${TARGET_BUILD_DIR}/${SDK}-${ARCH}/lib"
 make distclean
-echo "ENVIRONMENT..."
-export
+#echo "ENVIRONMENT..."
+#export
 "./configure" --disable-dependency-tracking --enable-static --disable-shared --host=${HOST} --prefix="${TARGET_BUILD_DIR}/${SDK}-${ARCH}" --without-libsodium --enable-perf --disable-curve-keygen
 make
 make install
