@@ -69,5 +69,5 @@ typedef NS_ENUM(NSUInteger,ZMQSocketType)
 - (BOOL)subscribeWithData:(NSData *)subscribtion withError:(ZMQError *__autoreleasing *)error;
 - (BOOL)unsubscribeWithData:(NSData *)subscribtion withError:(ZMQError *__autoreleasing *)error;
 - (BOOL)pollWithTimeout:(long)timeout withError:(ZMQError *__autoreleasing *)error;
-+ (void)indefinitelyPollSockets:(NSSet <ZMQSocket *> *)sockets onQueue:(dispatch_queue_t)queue withSignal:(int)fd withCompletion:(void (^)(BOOL signaled, NSSet <ZMQSocket *> *sockets,ZMQError *error))completion;
++ (BOOL)indefinitelyPollSockets:(NSArray <ZMQSocket *> *)sockets onQueue:(dispatch_queue_t)queue withSignal:(int)fd withResult:(NSSet <ZMQSocket *> *__autoreleasing *)result withError:(ZMQError *__autoreleasing *)error;
 @end

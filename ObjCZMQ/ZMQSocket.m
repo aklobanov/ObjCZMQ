@@ -791,14 +791,17 @@
     }
     return (ret >= 0);
 }
-+ (void)indefinitelyPollSockets:(NSArray <ZMQSocket *> *)sockets onQueue:(dispatch_queue_t)queue withSignal:(int)fd withCompletion:(void (^)(BOOL signaled, NSSet <ZMQSocket *> *sockets,ZMQError *error))completion
++ (BOOL)indefinitelyPollSockets:(NSArray <ZMQSocket *> *)sockets onQueue:(dispatch_queue_t)queue withSignal:(int)fd withResult:(NSSet <ZMQSocket *> *__autoreleasing *)result withError:(ZMQError *__autoreleasing *)error
 {
 #if DEBUG >= LOCAL_LEVEL_1
     NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
 #endif
-    dispatch_async(queue, ^{
-        int ret = -1, i = 1, n = (int)[sockets count];
-        zmq_pollitem_t *items = malloc((n + 1) * sizeof(zmq_pollitem_t));
+    __block ZMQError *err = nil;
+    __block NSMutableSet *set = nil;
+    __block BOOL ret = NO;
+    dispatch_sync(queue, ^{
+        int i = 1, n = (int)[sockets count] + 1;
+        zmq_pollitem_t *items = malloc(n * sizeof(zmq_pollitem_t));
         for (ZMQSocket *socket in sockets)
         {
             items[i].socket = socket->_socket;
@@ -807,31 +810,32 @@
         }
         items[0].fd = fd;
         items[0].events = ZMQ_POLLIN;
-        ret = zmq_poll(items,(n + 1), -1);
-        if (ret == -1)
+        if (zmq_poll(items, n, -1) == -1)
         {
-            if (completion != NULL)
-            {
-                completion(NO, nil,[ZMQError new]);
-            }
+            err = [ZMQError new];
         }
         else
         {
-            BOOL signaled = (items[0].revents == ZMQ_POLLIN);
-            NSMutableSet *set = [NSMutableSet new];
-            for (i = 1; i <= n; i++)
+            ret = (items[0].revents != ZMQ_POLLIN);
+            set = [NSMutableSet new];
+            for (i = 1; i < n; i++)
             {
                 if (items[i].revents == ZMQ_POLLIN)
                 {
                     [set addObject:[sockets objectAtIndex:(i - 1)]];
                 }
             }
-            if (completion != NULL)
-            {
-                completion(signaled, set,nil);
-            }
         }
         free(items);
     });
+    if (result != NULL)
+    {
+        *result = set;
+    }
+    if (error != NULL)
+    {
+        *error = err;
+    }
+    return ret;
 }
 @end
