@@ -516,6 +516,112 @@
         [self sendAsyncData:[NSData dataWithBytesNoCopy:(void *)str length:strlen(str)] multiPart:isMultiPart withCompletion:completion];
     }
 }
+- (NSData *)receiveSyncNoWaitWithError:(ZMQError *__autoreleasing *)error
+{
+#if DEBUG >= LOCAL_LEVEL_1
+    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+#endif
+    __block ZMQError *err = nil;
+    __block int ret;
+    __block NSMutableData *data = nil;
+    dispatch_sync(_queue, ^{
+        int more = 0;
+        size_t more_size = sizeof (more);
+        do {
+            zmq_msg_t part;
+            ret = zmq_msg_init (&part);
+            if (ret == 0)
+            {
+                ret = zmq_recvmsg(_socket, &part, ZMQ_DONTWAIT);
+                if (ret > 0)
+                {
+                    if (data == nil)
+                    {
+                        data = [NSMutableData dataWithBytes:zmq_msg_data(&part) length:zmq_msg_size(&part)];
+                    }
+                    else
+                    {
+                        [data appendBytes:zmq_msg_data(&part) length:zmq_msg_size(&part)];
+                    }
+                    ret = 0;
+                    if ((ret = zmq_getsockopt(_socket, ZMQ_RCVMORE, &more, &more_size)) != 0)
+                    {
+                        err = [ZMQError new];
+                    }
+                }
+                else
+                {
+                    if (ret == -1)
+                    {
+                        ret = zmq_errno();
+                        if (ret != EAGAIN) err = [[ZMQError alloc] initWithCode:ret];
+                    }
+                    ret = -1;
+                }
+                zmq_msg_close (&part);
+            }
+        } while ((more != 0) && (ret == 0));
+    });
+    if (error != NULL)
+    {
+        *error = err;
+    }
+    return data;
+}
+- (void)receiveAsyncNoWaitWithCompletion:(void (^)(NSData *data,ZMQError *error))completion
+{
+#if DEBUG >= LOCAL_LEVEL_1
+    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+#endif
+    dispatch_async(_queue, ^{
+        ZMQError *error = nil;
+        NSMutableData *data = nil;
+        int more = 0;
+        int ret;
+        size_t more_size = sizeof (more);
+        do {
+            zmq_msg_t part;
+            ret = zmq_msg_init(&part);
+            if (ret == 0)
+            {
+                ret = zmq_recvmsg(_socket, &part, ZMQ_DONTWAIT);
+                if (ret > 0)
+                {
+                    if (data == nil)
+                    {
+                        data = [NSMutableData dataWithBytes:zmq_msg_data(&part) length:zmq_msg_size(&part)];
+                    }
+                    else
+                    {
+                        [data appendBytes:zmq_msg_data(&part) length:zmq_msg_size(&part)];
+                    }
+                    if ((ret = zmq_getsockopt(_socket, ZMQ_RCVMORE, &more, &more_size)) != 0)
+                    {
+                        error = [ZMQError new];
+                    }
+                }
+                else
+                {
+                    if (ret == -1)
+                    {
+                        ret = zmq_errno();
+                        if (ret != EAGAIN) error = [[ZMQError alloc] initWithCode:ret];
+                    }
+                    ret = -1;
+                }
+                zmq_msg_close(&part);
+            }
+            else
+            {
+                error = [ZMQError new];
+            }
+        } while ((more != 0) && (ret == 0));
+        if (completion != NULL)
+        {
+            completion(data, error);
+        }
+    });
+}
 - (NSData *)receiveSyncWithError:(ZMQError *__autoreleasing *)error
 {
 #if DEBUG >= LOCAL_LEVEL_1
