@@ -15,7 +15,6 @@
 
 @implementation ZMQSocket
 {
-    __block void        *_socket;
     ZMQEndPoint         *_endPoint;
     dispatch_queue_t    _queue;
 }
@@ -741,25 +740,6 @@
         }
     });
 }
-- (BOOL)pollWithTimeout:(long)timeout withError:(ZMQError *__autoreleasing *)error
-{
-#if DEBUG >= LOCAL_LEVEL_1
-    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
-#endif
-    __block ZMQError *err = nil;
-    __block int ret;
-    dispatch_sync(_queue, ^{
-        zmq_pollitem_t items [1];
-        items[0].socket = _socket;
-        items[0].events = ZMQ_POLLIN;
-        ret = zmq_poll(items, 1, timeout);
-    });
-    if (error != NULL)
-    {
-        *error = err;
-    }
-    return (ret >= 0);
-}
 - (BOOL)subscribeWithData:(NSData *)subscribtion withError:(ZMQError *__autoreleasing *)error
 {
 #if DEBUG >= LOCAL_LEVEL_1
@@ -791,5 +771,67 @@
         *error = err;
     }
     return (ret >= 0);
+}
+- (BOOL)pollWithTimeout:(long)timeout withError:(ZMQError *__autoreleasing *)error
+{
+#if DEBUG >= LOCAL_LEVEL_1
+    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+#endif
+    __block ZMQError *err = nil;
+    __block int ret;
+    dispatch_sync(_queue, ^{
+        zmq_pollitem_t items [1];
+        items[0].socket = _socket;
+        items[0].events = ZMQ_POLLIN;
+        ret = zmq_poll(items, 1, timeout);
+    });
+    if (error != NULL)
+    {
+        *error = err;
+    }
+    return (ret >= 0);
+}
++ (void)indefinitelyPollSockets:(NSArray <ZMQSocket *> *)sockets onQueue:(dispatch_queue_t)queue withSignal:(int)fd withCompletion:(void (^)(BOOL signaled, NSSet <ZMQSocket *> *sockets,ZMQError *error))completion
+{
+#if DEBUG >= LOCAL_LEVEL_1
+    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+#endif
+    dispatch_async(queue, ^{
+        int ret = -1, i = 1, n = (int)[sockets count];
+        zmq_pollitem_t *items = malloc((n + 1) * sizeof(zmq_pollitem_t));
+        for (ZMQSocket *socket in sockets)
+        {
+            items[i].socket = socket->_socket;
+            items[i].events = ZMQ_POLLIN;
+            i++;
+        }
+        items[0].fd = fd;
+        items[0].events = ZMQ_POLLIN;
+        ret = zmq_poll(items,(n + 1), -1);
+        if (ret == -1)
+        {
+            if (completion != NULL)
+            {
+                completion(NO, nil,[ZMQError new]);
+            }
+        }
+        else
+        {
+            BOOL signaled = (items[0].revents == ZMQ_POLLIN);
+            NSMutableSet *set = [NSMutableSet new];
+            for (i = 1; i <= n; i++)
+            {
+                if (items[i].revents == ZMQ_POLLIN)
+                {
+                    [set addObject:[sockets objectAtIndex:(i - 1)]];
+                }
+            }
+            if (completion != NULL)
+            {
+                completion(signaled, set,nil);
+            }
+        }
+        free(items);
+    });
 }
 @end

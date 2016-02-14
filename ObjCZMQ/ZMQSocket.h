@@ -33,6 +33,10 @@ typedef NS_ENUM(NSUInteger,ZMQSocketType)
     kZMQSocketXRep      = ZMQ_XREP
 };
 @interface ZMQSocket : NSObject
+{
+@public
+    __block void        *_socket;
+}
 // Fabric methods
 + (ZMQSocket *)socketWithContext:(void *)context withType:(ZMQSocketType)type;
 + (ZMQSocket *)socketWithContext:(void *)context withType:(ZMQSocketType)type onQueue:(dispatch_queue_t)queue;
@@ -65,4 +69,5 @@ typedef NS_ENUM(NSUInteger,ZMQSocketType)
 - (BOOL)subscribeWithData:(NSData *)subscribtion withError:(ZMQError *__autoreleasing *)error;
 - (BOOL)unsubscribeWithData:(NSData *)subscribtion withError:(ZMQError *__autoreleasing *)error;
 - (BOOL)pollWithTimeout:(long)timeout withError:(ZMQError *__autoreleasing *)error;
++ (void)indefinitelyPollSockets:(NSSet <ZMQSocket *> *)sockets onQueue:(dispatch_queue_t)queue withSignal:(int)fd withCompletion:(void (^)(BOOL signaled, NSSet <ZMQSocket *> *sockets,ZMQError *error))completion;
 @end
