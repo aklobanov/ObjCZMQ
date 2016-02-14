@@ -49,6 +49,8 @@ typedef NS_ENUM(NSUInteger,ZMQSocketType)
 - (BOOL)sendSyncString:(NSString *)string multiPart:(BOOL)isMultiPart withError:(ZMQError *__autoreleasing *)error;
 - (BOOL)sendSyncString:(NSString *)string withPartSize:(NSUInteger)size withError:(ZMQError *__autoreleasing *)error;
 - (NSData *)receiveSyncWithError:(ZMQError *__autoreleasing *)error;
+- (BOOL)subscribeWithData:(NSData *)subscribtion withError:(ZMQError *__autoreleasing *)error;
+- (BOOL)unsubscribeWithData:(NSData *)subscribtion withError:(ZMQError *__autoreleasing *)error;
 // Async mathods
 - (void)closeAsyncWithCompletion:(void (^)(BOOL success,ZMQError *error))completion;
 - (void)connectAsyncWithEndPoint:(ZMQEndPoint *)endPoint withCompletion:(void (^)(BOOL success,ZMQError *error))completion;

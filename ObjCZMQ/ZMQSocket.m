@@ -654,4 +654,36 @@
     }
     return (ret >= 0);
 }
+- (BOOL)subscribeWithData:(NSData *)subscribtion withError:(ZMQError *__autoreleasing *)error
+{
+#if DEBUG >= LOCAL_LEVEL_1
+    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+#endif
+    __block ZMQError *err = nil;
+    __block int ret;
+    dispatch_sync(_queue, ^{
+        ret = zmq_setsockopt(_socket, ZMQ_SUBSCRIBE, [subscribtion bytes], (int)[subscribtion length]);
+    });
+    if (error != NULL)
+    {
+        *error = err;
+    }
+    return (ret >= 0);
+}
+- (BOOL)unsubscribeWithData:(NSData *)subscribtion withError:(ZMQError *__autoreleasing *)error
+{
+#if DEBUG >= LOCAL_LEVEL_1
+    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+#endif
+    __block ZMQError *err = nil;
+    __block int ret;
+    dispatch_sync(_queue, ^{
+        ret = zmq_setsockopt(_socket, ZMQ_UNSUBSCRIBE, [subscribtion bytes], (int)[subscribtion length]);
+    });
+    if (error != NULL)
+    {
+        *error = err;
+    }
+    return (ret >= 0);
+}
 @end
